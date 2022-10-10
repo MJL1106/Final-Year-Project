@@ -1,4 +1,4 @@
-package final.year.project;
+package com.example.project;
 
 /**
  * Hello world!
