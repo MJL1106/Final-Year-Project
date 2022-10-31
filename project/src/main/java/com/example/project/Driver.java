@@ -1,36 +1,36 @@
 package com.example.project;
 
-import java.util.Scanner;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
 
 /**
  * Main class that runs the interface for the player.
  *
  */
-public class Driver 
+public class Driver extends Application 
 {
-    public static void main( String[] args )
-    {
-        Scanner userInput = new Scanner(System.in);
-        String playerName;
-        String playerChoice;
-        System.out.println( "Prisoner's Dilemma" );
-        
-        System.out.println("Player 1 enter your name: ");
-        playerName = userInput.nextLine();
-        Player p1 = new Player(playerName);
+     /**
+   * Main class launches the Gui.
+   * 
+   * @param args
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
 
-        System.out.println("Player 2 enter your name: ");
-        playerName = userInput.nextLine();
-        Player p2 = new Player(playerName);
-
-        System.out.println(p1.getPlayerName() + " do you want to cooperate or defect: ");
-        playerChoice = userInput.nextLine();
-        p1.setChoice(playerChoice);
-
-        System.out.println(p2.getPlayerName() + " do you want to cooperate or defect: ");
-        playerChoice = userInput.nextLine();
-        p2.setChoice(playerChoice);
-
-        System.out.println(Dilemma.compareChoice(p1,p2));
-    }
+  /**
+   * Start builds the Gui.
+   */
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("myView.fxml"));
+    root.setStyle("-fx-background-color: white");
+    Scene scene = new Scene(root, 800, 500);
+    scene.getStylesheets().add(MyView.class.getResource("myView.css").toExternalForm());
+    primaryStage.setScene(scene);
+    primaryStage.show();
+  }
 }
