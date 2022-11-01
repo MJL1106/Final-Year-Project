@@ -9,23 +9,33 @@ import javafx.scene.control.TextField;
 public class MyView {
 
     @FXML
-    private Button names;
+    private TextField Choice1;
+
+    @FXML
+    private TextField Choice2;
+
+    @FXML
+    private TextField Name1;
+
+    @FXML
+    private TextField Name2;
+
+    @FXML
+    private Button compare;
 
     @FXML
     private TextArea taOutput;
 
     @FXML
-    private TextField tf1Entered;
+    void showJailTime(ActionEvent event) {
+        Player p1 = new Player(Name1.getText());
+        Player p2 = new Player(Name2.getText());
+        p1.setChoice(Choice1.getText());
+        p2.setChoice(Choice2.getText());
 
-    @FXML
-    private TextField tf2Entered;
-
-    @FXML
-    void showNames(ActionEvent event) {
-        Player p1 = new Player(tf1Entered.getText());
-        Player p2 = new Player(tf2Entered.getText());
-        String result = (p1.getPlayerName() + " " + p2.getPlayerName());
+        String result = Dilemma.compareChoice(p1,p2);
         taOutput.setText(result);
+
     }
 
 }

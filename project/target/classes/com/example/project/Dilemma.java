@@ -18,18 +18,18 @@ public class Dilemma {
         String choice2 = p2.getChoice();
         String outcome1,outcome2;
         
-        if(choice1.equals(choice2) && choice1.equals("cooperate")){
+        if(choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("cooperate")){
             p1.setJailTime(1);
             p2.setJailTime(1);
-        }else if (choice1.equals(choice2) && choice1.equals("defect")){
+        }else if (choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("defect")){
             p1.setJailTime(5);
             p2.setJailTime(5);
         }
         
-        if(choice1.equals("cooperate") && choice2.equals("defect")){
+        if(choice1.equalsIgnoreCase("cooperate") && choice2.equalsIgnoreCase("defect")){
             p1.setJailTime(10);
             p2.setJailTime(0);
-        }else if(choice1.equals("defect") && choice2.equals("cooperate")){
+        }else if(choice1.equalsIgnoreCase("defect") && choice2.equalsIgnoreCase("cooperate")){
             p1.setJailTime(0);
             p2.setJailTime(10);
         }
