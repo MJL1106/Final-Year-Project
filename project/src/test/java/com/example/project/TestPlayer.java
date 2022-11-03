@@ -2,6 +2,8 @@ package com.example.project;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 public class TestPlayer {
@@ -14,8 +16,16 @@ public class TestPlayer {
     @Test
     public void testChoice() {
         Player p1 = new Player("Matthew");
+        ArrayList<String> arr = new ArrayList<String>();
+        arr.add("defect");
+        arr.add("defect");
+        arr.add("defect");
+        arr.add("defect");
         p1.setChoice("defect");
-        assertEquals(p1.getChoice(), "defect", "Testing if the player choice has been set");
+        p1.setChoice("defect");
+        p1.setChoice("defect");
+        p1.setChoice("defect");
+        assertEquals(p1.getChoices(), arr, "Testing if the player choice has been set");
     }
 
     @Test

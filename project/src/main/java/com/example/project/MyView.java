@@ -33,9 +33,6 @@ public class MyView {
         p1.setChoice(Choice1.getText());
         p2.setChoice(Choice2.getText());
 
-        String result = Dilemma.compareChoice(p1,p2);
-        taOutput.setText(result);
-
     }
 
 }

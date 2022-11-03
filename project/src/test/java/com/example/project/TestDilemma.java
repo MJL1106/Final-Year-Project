@@ -1,52 +1,49 @@
 package com.example.project;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 public class TestDilemma {
-    private Player p1,p2;
-
-    @BeforeEach
-    public void createPlayers(){
-        p1 = new Player("Matthew");
-        p2 = new Player("James");
-    }
-
     @Test
     public void testBothCooperate(){
-        p1.setChoice("cooperate");
-        p2.setChoice("cooperate");
-
-        String result = Dilemma.compareChoice(p1,p2);
-        assertEquals(result, "Matthew you are going to jail for: 1 year(s).\nJames you are going to jail for: 1 year(s).","Tests that when both cooperate their jail time is 1 year.");
+        int[] result = new int[2];
+        int[] expected = new int[2];
+        expected[0] = 1;
+        expected[1] = 1;
+        result = Dilemma.compareChoice("cooperate","cooperate");
+        assertTrue(Arrays.equals(result,expected), "Tests that cooperating gives 1 point each");
     }
 
     @Test
     public void testBothDefect(){
-        p1.setChoice("defect");
-        p2.setChoice("defect");
-
-        String result = Dilemma.compareChoice(p1,p2);
-        assertEquals(result, "Matthew you are going to jail for: 5 year(s).\nJames you are going to jail for: 5 year(s).","Tests that when both defect their jail time is 5 years.");
+        int[] result = new int[2];
+        int[] expected = new int[2];
+        expected[0] = 5;
+        expected[1] = 5;
+        result = Dilemma.compareChoice("defect","defect");
+        assertTrue(Arrays.equals(result,expected), "Tests that cooperating gives 5 points each");
     }
 
     @Test
     public void testCooperateDefect(){
-        p1.setChoice("cooperate");
-        p2.setChoice("defect");
-
-        String result = Dilemma.compareChoice(p1,p2);
-        assertEquals(result, "Matthew you are going to jail for: 10 year(s).\nJames you are going to jail for: 0 year(s).","Tests that when both defect their jail time is 5 years.");
+        int[] result = new int[2];
+        int[] expected = new int[2];
+        expected[0] = 10;
+        expected[1] = 0;
+        result = Dilemma.compareChoice("cooperate","defect");
+        assertTrue(Arrays.equals(result,expected), "Tests that cooperating and defecting gives 10 points and 0 points");
     }
 
     @Test
     public void testDefectCooperate(){
-        p1.setChoice("defect");
-        p2.setChoice("cooperate");
-
-        String result = Dilemma.compareChoice(p1,p2);
-        assertEquals(result, "Matthew you are going to jail for: 0 year(s).\nJames you are going to jail for: 10 year(s).","Tests that when both defect their jail time is 5 years.");
+        int[] result = new int[2];
+        int[] expected = new int[2];
+        expected[0] = 0;
+        expected[1] = 10;
+        result = Dilemma.compareChoice("defect","cooperate");
+        assertTrue(Arrays.equals(result,expected), "Tests that defecting and cooperating gives 0 points and 10 points");
     }
 }

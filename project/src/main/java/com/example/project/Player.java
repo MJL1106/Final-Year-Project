@@ -1,11 +1,14 @@
 package com.example.project;
 
+import java.util.ArrayList;
+
 /**
  * Class to create a Player.
  */
 public class Player {
-    private String playerName,choice;
+    private String playerName;
     private int jailTime;
+    private ArrayList<String> choices = new ArrayList<String>();
 
     /**
      * A constructor to create a new Player.
@@ -26,24 +29,26 @@ public class Player {
         return this.playerName;
     }
 
-    
-    /** 
-     * Sets the Players choice of action.
-     * 
-     * @param str is the entered decision
-     */
-    public void setChoice(String str){
-        this.choice = str;
-    }
 
     
     /** 
-     * Gets the Players choice of action.
+     * Adds entered choice to list of choices.
      * 
-     * @return String choice of Player
+     * @param str String name of choice
      */
-    public String getChoice(){
-        return this.choice;
+    public void setChoice(String str){
+        this.choices.add(str);
+    }
+    
+
+    
+    /** 
+     * Gets all the choices made by the Player.
+     * 
+     * @return ArrayList<String> list of choices
+     */
+    public ArrayList<String> getChoices(){
+        return this.choices;
     }
 
     

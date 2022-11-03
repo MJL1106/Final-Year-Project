@@ -13,30 +13,24 @@ public class Dilemma {
      * @param p2 Player 2 object
      * @return String is the result of the dilemma
      */
-    public static String compareChoice(Player p1, Player p2){
-        String choice1 = p1.getChoice();
-        String choice2 = p2.getChoice();
-        String outcome1,outcome2;
+    public static int[] compareChoice(String choice1, String choice2){
+        int[] points = new int[2];
         
         if(choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("cooperate")){
-            p1.setJailTime(1);
-            p2.setJailTime(1);
+            points[0] = 1;
+            points[1] = 1;
         }else if (choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("defect")){
-            p1.setJailTime(5);
-            p2.setJailTime(5);
+            points[0] = 5;
+            points[1] = 5;
         }
         
         if(choice1.equalsIgnoreCase("cooperate") && choice2.equalsIgnoreCase("defect")){
-            p1.setJailTime(10);
-            p2.setJailTime(0);
+            points[0] = 10;
+            points[1] = 0;
         }else if(choice1.equalsIgnoreCase("defect") && choice2.equalsIgnoreCase("cooperate")){
-            p1.setJailTime(0);
-            p2.setJailTime(10);
+            points[0] = 0;
+            points[1] = 10;
         }
-
-        outcome1 = (p1.getPlayerName() + " you are going to jail for: " + p1.getJailTime() + " year(s).");
-        outcome2 = (p2.getPlayerName() + " you are going to jail for: " + p2.getJailTime() + " year(s).");
-
-        return outcome1 + "\n" + outcome2;
+        return points;
     }
 }
