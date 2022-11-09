@@ -16,20 +16,20 @@ public class Dilemma {
     public static int[] compareChoice(String choice1, String choice2){
         int[] points = new int[2];
         
-        if(choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("cooperate")){
+        if(choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("split")){
+            points[0] = 3;
+            points[1] = 3;
+        }else if (choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("steal")){
             points[0] = 1;
             points[1] = 1;
-        }else if (choice1.equalsIgnoreCase(choice2) && choice1.equalsIgnoreCase("defect")){
-            points[0] = 5;
-            points[1] = 5;
         }
         
-        if(choice1.equalsIgnoreCase("cooperate") && choice2.equalsIgnoreCase("defect")){
-            points[0] = 10;
-            points[1] = 0;
-        }else if(choice1.equalsIgnoreCase("defect") && choice2.equalsIgnoreCase("cooperate")){
+        if(choice1.equalsIgnoreCase("split") && choice2.equalsIgnoreCase("steal")){
             points[0] = 0;
-            points[1] = 10;
+            points[1] = 5;
+        }else if(choice1.equalsIgnoreCase("steal") && choice2.equalsIgnoreCase("split")){
+            points[0] = 5;
+            points[1] = 0;
         }
         return points;
     }

@@ -17,14 +17,14 @@ public class TestPlayer {
     public void testChoice() {
         Player p1 = new Player("Matthew");
         ArrayList<String> arr = new ArrayList<String>();
-        arr.add("defect");
-        arr.add("defect");
-        arr.add("defect");
-        arr.add("defect");
-        p1.setChoice("defect");
-        p1.setChoice("defect");
-        p1.setChoice("defect");
-        p1.setChoice("defect");
+        arr.add("steal");
+        arr.add("steal");
+        arr.add("steal");
+        arr.add("steal");
+        p1.setChoice("steal");
+        p1.setChoice("steal");
+        p1.setChoice("steal");
+        p1.setChoice("steal");
         assertEquals(p1.getChoices(), arr, "Testing if the player choice has been set");
     }
 

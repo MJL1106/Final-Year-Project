@@ -18,48 +18,48 @@ public class TestIterator {
     
     @Test
     public void testSingleRound(){
-        p1.setChoice("cooperate");
-        p2.setChoice("cooperate");
+        p1.setChoice("split");
+        p2.setChoice("split");
         Iterator.tallyPoints(p1,p2);
         total1 = p1.getJailTime();
         total2 = p2.getJailTime();
-        assertEquals(1,total1);
-        assertEquals(1,total2);
+        assertEquals(3,total1);
+        assertEquals(3,total2);
     }
 
     @Test
     public void testdoubleRound(){
-        p1.setChoice("cooperate");
-        p2.setChoice("cooperate");
+        p1.setChoice("split");
+        p2.setChoice("split");
 
-        p1.setChoice("cooperate");
-        p2.setChoice("cooperate");
+        p1.setChoice("split");
+        p2.setChoice("split");
 
         Iterator.tallyPoints(p1,p2);
         total1 = p1.getJailTime();
         total2 = p2.getJailTime();
-        assertEquals(2,total1);
-        assertEquals(2,total2);
+        assertEquals(6,total1);
+        assertEquals(6,total2);
     }
 
     @Test
     public void testmultiRound(){
-        p1.setChoice("cooperate");
-        p2.setChoice("cooperate");
+        p1.setChoice("split");
+        p2.setChoice("split");
 
-        p1.setChoice("cooperate");
-        p2.setChoice("cooperate");
+        p1.setChoice("split");
+        p2.setChoice("split");
 
-        p1.setChoice("defect");
-        p2.setChoice("cooperate");
+        p1.setChoice("steal");
+        p2.setChoice("split");
 
-        p1.setChoice("defect");
-        p2.setChoice("defect");
+        p1.setChoice("steal");
+        p2.setChoice("steal");
         
         Iterator.tallyPoints(p1,p2);
         total1 = p1.getJailTime();
         total2 = p2.getJailTime();
-        assertEquals(7,total1);
-        assertEquals(17,total2);
+        assertEquals(12,total1);
+        assertEquals(7,total2);
     }
 }
