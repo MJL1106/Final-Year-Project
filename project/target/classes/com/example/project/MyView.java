@@ -1,11 +1,17 @@
 package com.example.project;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -13,11 +19,11 @@ import javafx.stage.Stage;
 /**
  * Class is the controller to the GUI.
  */
-public class MyView{
+public class MyView implements Initializable{
 
 
     private Player p1,p2;
-
+    private String[] strategies = {"TitForTat","Splitter","Stealer"};
 
     @FXML
     private TextField Name1;
@@ -28,8 +34,6 @@ public class MyView{
     @FXML
     private Button names;
 
-    @FXML
-    private TextArea taOutput;
 
     
     /** 
@@ -48,12 +52,19 @@ public class MyView{
             GameView gameview = loader.getController();
             gameview.displayName(p1, p2);
 
-
             Stage stage = new Stage();
             stage.setScene(new Scene(root));  
             stage.show();
         } catch(Exception e){
             System.out.println(e);
         }
+    }
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
+        
     }
 }

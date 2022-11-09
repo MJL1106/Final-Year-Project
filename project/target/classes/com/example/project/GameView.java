@@ -7,18 +7,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class GameView implements Initializable {
+public class GameView implements Initializable{
 
     private Player p1,p2;
-    @FXML
-    private TextField Choice1;
-
-    @FXML
-    private TextField Choice2;
+    private String[] strategies = {"Tit For Tat", "Stealer", "Splitter"};
+    
 
     @FXML
     private Button compare;
@@ -30,6 +28,12 @@ public class GameView implements Initializable {
     private Label player2;
     
     @FXML
+    private ChoiceBox<String> Choice1;
+
+    @FXML
+    private ChoiceBox<String> Choice2;
+
+    @FXML
     private TextArea taOutput;
 
     /** 
@@ -39,26 +43,30 @@ public class GameView implements Initializable {
      */
     @FXML
     void showJailTime(ActionEvent event) {
-        p1.setChoice(Choice1.getText());
-        p2.setChoice(Choice2.getText());
-        Iterator.tallyPoints(p1,p2);
-        taOutput.setText(p1.getPlayerName() + " points: " + p1.getJailTime() + "\n" + p2.getPlayerName() + " points: " + p2.getJailTime());
-        Choice1.setText("");
-        Choice2.setText("");
-
+        p1.setStrategy(Choice1.getValue());
+        p2.setStrategy(Choice2.getValue());
+        taOutput.setText(p1.getStrategy());
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        
-    }
-
+    
+    /** 
+     * Displays player names of current players.
+     * 
+     * @param p1 player1
+     * @param p2 player2
+     */
     public void displayName(Player p1, Player p2){
         this.p1 = p1;
         this.p2 = p2;
-        player1.setText(p1.getPlayerName() + " Enter split/steal:");
-        player2.setText(p2.getPlayerName() + " Enter split/steal:");
+        player1.setText(p1.getPlayerName() + " Choose strategy:");
+        player2.setText(p2.getPlayerName() + " Choose strategy:");   
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Choice1.getItems().addAll(strategies);
+        Choice2.getItems().addAll(strategies);
     }
 
 }

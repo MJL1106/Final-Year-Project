@@ -25,12 +25,16 @@ public class Driver extends Application
    * Start builds the Gui.
    */
   @Override
-  public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("myView.fxml"));
-    root.setStyle("-fx-background-color: white");
-    Scene scene = new Scene(root);
-    scene.getStylesheets().add(MyView.class.getResource("myView.css").toExternalForm());
-    primaryStage.setScene(scene);
-    primaryStage.show();
-  }
+    public void start(Stage stage) {
+    try {
+      
+      Parent root = FXMLLoader.load(getClass().getResource("myView.fxml"));
+      Scene scene = new Scene(root);
+      stage.setScene(scene);
+      stage.show();
+      
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  } 
 }

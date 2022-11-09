@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Class to create a Player.
  */
 public class Player {
-    private String playerName;
+    private String playerName,strategy;
     private int jailTime;
     private ArrayList<String> choices = new ArrayList<String>();
 
@@ -29,7 +29,25 @@ public class Player {
         return this.playerName;
     }
 
+    
+    /** 
+     * Sets player's strategy.
+     * 
+     * @param strat
+     */
+    public void setStrategy(String strat){
+        this.strategy = strat;
+    }
 
+    
+    /** 
+     * Gets the player's strategy.
+     * 
+     * @return String
+     */
+    public String getStrategy(){
+        return this.strategy;
+    }
     
     /** 
      * Adds entered choice to list of choices.
