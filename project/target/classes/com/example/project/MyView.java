@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+/**
+ * Class is the controller to the GUI.
+ */
 public class MyView {
 
     private Player p1,p2;
@@ -31,12 +34,24 @@ public class MyView {
     @FXML
     private TextArea taOutput;
 
+    
+    /** 
+     * Sets the name of the players.
+     * 
+     * @param event on click
+     */
     @FXML
     void enterNames(ActionEvent event) {
         p1 = new Player(Name1.getText());
         p2 = new Player(Name2.getText());
     }
 
+    
+    /** 
+     * Displays the points based on the player's inputs.
+     * 
+     * @param event on click
+     */
     @FXML
     void showJailTime(ActionEvent event) {
         p1.setChoice(Choice1.getText());

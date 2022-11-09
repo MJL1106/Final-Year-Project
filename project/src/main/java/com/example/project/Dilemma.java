@@ -1,7 +1,7 @@
 package com.example.project;
 
 /**
- * Class creates the basic prisoners dilemma.
+ * Class calculates the points given to players.
  */
 
 public class Dilemma {
@@ -11,7 +11,7 @@ public class Dilemma {
      * 
      * @param p1 Player1 object
      * @param p2 Player 2 object
-     * @return String is the result of the dilemma
+     * @return int[] is the result of the dilemma
      */
     public static int[] compareChoice(String choice1, String choice2){
         int[] points = new int[2];

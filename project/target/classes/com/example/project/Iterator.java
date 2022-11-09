@@ -2,8 +2,18 @@ package com.example.project;
 
 import java.lang.reflect.Array;
 
+/**
+ * Class creates the iterated prisoner's dilemma.
+ */
 public class Iterator {
 
+    
+    /** 
+     * Method tallies the total points given to players.
+     * 
+     * @param p1 player 1 object
+     * @param p2 player 2 object
+     */
     public static void tallyPoints(Player p1, Player p2){
         String p1Choice,p2Choice;
         int[] points = new int[2];
@@ -11,7 +21,6 @@ public class Iterator {
         int total2 = 0;
 
         int arrLength = p1.getChoices().size();
-        System.out.println(arrLength);
 
         for (int i = 0; i<=arrLength-1; i++){
             p1Choice = p1.getChoices().get(i);

@@ -13,6 +13,6 @@
       <TextField fx:id="Name1" layoutX="29.0" layoutY="63.0" promptText="Enter Name " />
       <TextField fx:id="Choice1" layoutX="29.0" layoutY="114.0" promptText="Enter Choice" />
       <TextField fx:id="Choice2" layoutX="206.0" layoutY="114.0" promptText="Enter Choice" />
-      <Button fx:id="names" layoutX="387.0" layoutY="63.0" mnemonicParsing="false" onAction="#enterNames" text="Names" />
+      <Button fx:id="names" layoutX="387.0" layoutY="63.0" mnemonicParsing="false" onAction="#enterNames" text="Enter Names" />
    </children>
 </AnchorPane>
