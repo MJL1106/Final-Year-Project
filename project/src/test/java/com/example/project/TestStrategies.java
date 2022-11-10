@@ -50,5 +50,31 @@ public class TestStrategies {
         assertEquals(9,p2.getJailTime());
     }
 
+    @Test
+    public void testTitForTatRandomWins(){
+        p2.setChoice("split");
+        p2.setChoice("split");
+        p2.setChoice("steal");
+        p2.setChoice("split");
+        p2.setChoice("steal");
+        Strategies.titForTat(p1, p2);
+        Iterator.tallyPoints(p1, p2);
+        assertEquals(11, p1.getJailTime());
+        assertEquals(16, p2.getJailTime());
+    }
+
+    @Test
+    public void testTitForTatRandomDraw(){
+        p2.setChoice("split");
+        p2.setChoice("split");
+        p2.setChoice("steal");
+        p2.setChoice("split");
+        p2.setChoice("split");
+        Strategies.titForTat(p1, p2);
+        Iterator.tallyPoints(p1, p2);
+        assertEquals(14, p1.getJailTime());
+        assertEquals(14, p2.getJailTime());
+    }
+
 
 }
