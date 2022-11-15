@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class StartView implements Initializable {
@@ -29,6 +30,12 @@ public class StartView implements Initializable {
 
     @FXML
     private Button start;
+
+    @FXML
+    private Button display;
+
+    @FXML
+    private TextArea taOutput;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,7 +68,6 @@ public class StartView implements Initializable {
         for (int i = 0; i<selected;i++){
             p1 = playerList.get(i);
             p2 = playerList.get(i+1);
-            i++;
             try{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
                 Parent root = loader.load();
@@ -75,13 +81,28 @@ public class StartView implements Initializable {
             } catch(Exception e){
                 System.out.println(e);
             }
+            i++;
         }
+    }
 
+    
+    @FXML
+    void showPoints(ActionEvent event) {
+        for(int i=0; i<selected;i++){
+            
+        }
     }
 
     public static void storePlayers(Player player){
         p = player;
         playerList.add(p);
+    }
+
+    public static void updatePlayers(Player player){
+        p = player;
+        int location = 0;
+        location = playerList.indexOf(p);
+        playerList.set(location,p);
     }
 
 }
