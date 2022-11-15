@@ -10,15 +10,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class GameView implements Initializable{
 
     private Player p1,p2;
     private String[] strategies = {"Tit For Tat", "Stealer", "Splitter", "Random"};
+    private Stage stage;
     
 
     @FXML
     private Button compare;
+
+    @FXML
+    private Button exit;
+
 
     @FXML
     private Label player1;
@@ -34,6 +41,10 @@ public class GameView implements Initializable{
 
     @FXML
     private TextArea taOutput;
+
+    @FXML
+    private AnchorPane scenePane;
+
 
     /** 
      * Displays the points based on the player's inputs.
@@ -60,7 +71,13 @@ public class GameView implements Initializable{
         this.p1 = p1;
         this.p2 = p2;
         player1.setText(p1.getPlayerName() + " Choose strategy:");
-        player2.setText(p2.getPlayerName() + " Choose strategy:");   
+        player2.setText(p2.getPlayerName() + " Choose strategy:");  
+    }
+
+    @FXML
+    void closeScene(ActionEvent event) {
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
     }
 
 

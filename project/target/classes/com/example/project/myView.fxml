@@ -5,12 +5,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MyView">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MyView">
    <children>
-      <TextField fx:id="Name1" layoutX="73.0" layoutY="72.0" promptText="Enter Name" />
-      <TextField fx:id="Name2" layoutX="288.0" layoutY="72.0" promptText="Enter Name " />
+      <TextField fx:id="Name1" layoutX="244.0" layoutY="72.0" promptText="Enter Name" />
       <Button fx:id="names" layoutX="473.0" layoutY="72.0" mnemonicParsing="false" onAction="#enterNames" text="Enter Names" />
-      <Label alignment="TOP_CENTER" layoutX="73.0" layoutY="47.0" prefHeight="17.0" prefWidth="149.0" text="Player 1" />
-      <Label alignment="TOP_CENTER" layoutX="288.0" layoutY="47.0" prefHeight="17.0" prefWidth="149.0" text="Player 2" />
+      <Label fx:id="label" alignment="TOP_CENTER" layoutX="244.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

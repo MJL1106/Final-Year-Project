@@ -11,7 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -20,17 +22,21 @@ import javafx.stage.Stage;
 public class MyView implements Initializable{
 
 
-    private Player p1,p2;
+    private Player p;
+    private int playerNumber = 0;
+    private Stage stage;
+
+    @FXML
+    private Label label;
 
     @FXML
     private TextField Name1;
 
     @FXML
-    private TextField Name2;
-
-    @FXML
     private Button names;
 
+    @FXML
+    private AnchorPane scenePane;
 
     
     /** 
@@ -39,22 +45,10 @@ public class MyView implements Initializable{
      * @param event on click
      */
     public void enterNames(ActionEvent event) {
-        p1 = new Player(Name1.getText());
-        p2 = new Player(Name2.getText());
-
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-            Parent root = loader.load();
-            
-            GameView gameview = loader.getController();
-            gameview.displayName(p1, p2);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));  
-            stage.show();
-        } catch(Exception e){
-            System.out.println(e);
-        }
+        p = new Player(Name1.getText());
+        StartView.storePlayers(p);
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
     }
 
 
@@ -63,5 +57,13 @@ public class MyView implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
         
+    }
+
+
+
+    public void createName(Player player, int i) {
+        this.p = player;
+        this.playerNumber = i;
+        label.setText("Player " + playerNumber);
     }
 }

@@ -28,7 +28,7 @@ public class Driver extends Application
     public void start(Stage stage) {
     try {
       
-      Parent root = FXMLLoader.load(getClass().getResource("myView.fxml"));
+      Parent root = FXMLLoader.load(getClass().getResource("startView.fxml"));
       Scene scene = new Scene(root);
       stage.setScene(scene);
       stage.show();
