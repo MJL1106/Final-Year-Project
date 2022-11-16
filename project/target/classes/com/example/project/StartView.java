@@ -91,6 +91,7 @@ public class StartView implements Initializable {
     
     @FXML
     void showPoints(ActionEvent event) {
+        taOutput.setText("");
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);

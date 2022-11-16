@@ -1,6 +1,7 @@
 package com.example.project;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ public class GameView implements Initializable{
     private Player p1,p2;
     private String[] strategies = {"Tit For Tat", "Stealer", "Splitter", "Random"};
     private Stage stage;
+    private String points1,points2;
     
 
     @FXML
@@ -56,7 +58,9 @@ public class GameView implements Initializable{
         p1.setStrategy(Choice1.getValue());
         p2.setStrategy(Choice2.getValue());
         Game.run(p1,p2);
-        taOutput.setText(p1.getPlayerName() + " points: " + p1.getJailTime() + "\n" + p2.getPlayerName() + " points: " + p2.getJailTime());
+        points1 = p1.getChoices().toString().replace("[","").replace("]","");
+        points2 = p2.getChoices().toString().replace("[","").replace("]","");
+        taOutput.setText(p1.getPlayerName() + " points: " + points1 + " = " + p1.getJailTime() + "\n" + p2.getPlayerName() + " points: " + points2 + " =" + p2.getJailTime());
         StartView.updatePlayers(p1);
         StartView.updatePlayers(p2);
     }
