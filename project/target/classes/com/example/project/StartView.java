@@ -2,6 +2,8 @@ package com.example.project;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -21,6 +23,7 @@ public class StartView implements Initializable {
     private int selected = 0;
     private static Player p,p1,p2;
     private static ArrayList<Player> playerList = new ArrayList<Player>();
+    private String result = "";
 
     @FXML
     private Button createPlayers;
@@ -88,8 +91,10 @@ public class StartView implements Initializable {
     
     @FXML
     void showPoints(ActionEvent event) {
+        Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
-            
+            p = playerList.get(i);
+            taOutput.appendText(p.getPlayerName() + " " + p.getJailTime() + "\n");
         }
     }
 

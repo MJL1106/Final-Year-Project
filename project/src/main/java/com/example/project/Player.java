@@ -1,6 +1,7 @@
 package com.example.project;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Class to create a Player.
@@ -88,4 +89,13 @@ public class Player {
     public int getJailTime(){
         return this.jailTime;
     }
+
+
+    public static Comparator<Player> Comparator = new Comparator<Player>(){
+        public int compare(Player p1, Player p2){
+            int time1 = p1.getJailTime();
+            int time2 = p2.getJailTime();
+            return time2-time1;
+        }
+    };
 }
