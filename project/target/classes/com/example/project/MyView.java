@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -25,9 +26,13 @@ public class MyView implements Initializable{
     private Player p;
     private int playerNumber = 0;
     private Stage stage;
+    private String[] strategies = {"Tit For Tat", "Stealer", "Splitter", "Random"};
 
     @FXML
     private Label label;
+
+    @FXML
+    private ChoiceBox<String> Choice;
 
     @FXML
     private TextField Name1;
@@ -46,6 +51,7 @@ public class MyView implements Initializable{
      */
     public void enterNames(ActionEvent event) {
         p = new Player(Name1.getText());
+        p.setStrategy(Choice.getValue());
         StartView.storePlayers(p);
         stage = (Stage) scenePane.getScene().getWindow();
         stage.close();
@@ -55,7 +61,7 @@ public class MyView implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
+        Choice.getItems().addAll(strategies);
         
     }
 

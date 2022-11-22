@@ -12,8 +12,8 @@
       <TextArea fx:id="taOutput" layoutX="74.0" layoutY="214.0" prefHeight="49.0" prefWidth="322.0" />
       <Label fx:id="player1" layoutX="40.0" layoutY="74.0" prefHeight="17.0" prefWidth="149.0" />
       <Label fx:id="player2" layoutX="216.0" layoutY="74.0" prefHeight="17.0" prefWidth="149.0" />
-      <ChoiceBox fx:id="Choice1" layoutX="40.0" layoutY="99.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="Choice2" layoutX="216.0" layoutY="99.0" prefWidth="150.0" />
       <Button fx:id="exit" layoutX="408.0" layoutY="239.0" mnemonicParsing="false" onAction="#closeScene" prefHeight="25.0" prefWidth="65.0" text="Exit" />
+      <ChoiceBox fx:id="Choice1" layoutX="66.0" layoutY="112.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="Choice2" layoutX="225.0" layoutY="112.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

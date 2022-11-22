@@ -14,5 +14,6 @@
       <Button fx:id="start" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="150.0" text="Start" />
       <TextArea fx:id="taOutput" layoutX="310.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" />
       <Button fx:id="display" layoutX="515.0" layoutY="178.0" mnemonicParsing="false" onAction="#showPoints" text="Show Points" />
+      <Button fx:id="matches" layoutX="515.0" layoutY="141.0" mnemonicParsing="false" onAction="#showMatches" text="matches" />
    </children>
 </AnchorPane>
