@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 /**
  * Class displays GUI for creating players.
  */
-public class MyView implements Initializable{
+public class PlayerView implements Initializable{
 
 
     private Player p;
@@ -41,6 +41,9 @@ public class MyView implements Initializable{
     private Button names;
 
     @FXML
+    private Button helpButton;
+
+    @FXML
     private AnchorPane scenePane;
 
     
@@ -52,7 +55,7 @@ public class MyView implements Initializable{
     public void enterNames(ActionEvent event) {
         p = new Player(Name1.getText());
         p.setStrategy(Choice.getValue());
-        StartView.storePlayers(p);
+        MainView.storePlayers(p);
         stage = (Stage) scenePane.getScene().getWindow();
         stage.close();
     }
@@ -71,7 +74,21 @@ public class MyView implements Initializable{
     }
 
 
-
+    @FXML
+    void showHelp(ActionEvent event) {
+        try {
+        
+            Parent root = FXMLLoader.load(getClass().getResource("helpView.fxml"));
+            Scene scene = new Scene(root);
+            Stage stagehelp = new Stage();
+            stagehelp.setTitle("Help Page");
+            stagehelp.setScene(scene);
+            stagehelp.show();
+            
+          } catch(Exception e) {
+            e.printStackTrace();
+          }
+    }
     
     /** 
      * Displays the number of player being created.

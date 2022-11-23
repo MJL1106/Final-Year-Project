@@ -26,16 +26,16 @@ public class Driver extends Application
    */
   @Override
     public void start(Stage stage) {
-    try {
-      
-      Parent root = FXMLLoader.load(getClass().getResource("startView.fxml"));
-      Scene scene = new Scene(root);
-      stage.setTitle("Prisoner's Dilemma Game");
-      stage.setScene(scene);
-      stage.show();
-      
-    } catch(Exception e) {
-      e.printStackTrace();
-    }
+      try {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("homeView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Prisoner's Dilemma Game");
+        stage.setScene(scene);
+        stage.show();
+        
+      } catch(Exception e) {
+        e.printStackTrace();
+      }
   } 
 }

@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 /**
  * Class displays the main page for the tournament.
  */
-public class StartView implements Initializable {
+public class MainView implements Initializable {
     
     private Integer[] players = {2,4,6,8,10};
     private int selected = 0;
@@ -66,10 +66,10 @@ public class StartView implements Initializable {
         selected = playerAmount.getValue();
         for (int i = selected; i >0; i--){
             try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("myView.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("playerView.fxml"));
                 Parent root = loader.load();
                 
-                MyView myview = loader.getController();
+                PlayerView myview = loader.getController();
                 myview.createName(p,i);
     
                 Stage stage = new Stage();

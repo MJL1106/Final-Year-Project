@@ -67,8 +67,8 @@ public class GameView implements Initializable{
 
             this.p1.setRoundPoints(0);
             this.p1.setRoundPoints(0);
-            StartView.updatePlayers(this.p1);
-            StartView.updatePlayers(this.p2);
+            MainView.updatePlayers(this.p1);
+            MainView.updatePlayers(this.p2);
 
         }
     }
