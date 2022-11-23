@@ -90,6 +90,15 @@ public class Player {
         return this.jailTime;
     }
 
+    public void setRoundPoints(int points){
+        this.roundPoints = points;
+    }
+
+    public int getRoundPoints(){
+        return this.roundPoints;
+    }
+
+
     public static Comparator<Player> Comparator = new Comparator<Player>(){
         public int compare(Player p1, Player p2){
             int time1 = p1.getJailTime();

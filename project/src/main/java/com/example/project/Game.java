@@ -34,6 +34,7 @@ public class Game {
         }
 
         Iterator.tallyPoints(p1, p2);
+        Iterator.tallyRoundPoints(p1, p2);
     }
     
     public static ArrayList<String> CreateMatches(ArrayList<String> Teams){

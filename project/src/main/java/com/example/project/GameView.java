@@ -47,20 +47,28 @@ public class GameView implements Initializable{
         int[] playerIndex = new int[2];
         int roundNum = 1;
         for (int i=0; i<matches.size();i++){
+
             if (i % (selected/2) == 0){
                 taOutput.appendText("Round " + roundNum + "\n");
                 roundNum+=1;
             }
+
             match = matches.get(i).split(" vs ");
             playerIndex = Game.getIndexes(playerList, match, selected);
             this.p1 = playerList.get(playerIndex[0]);
             this.p2 = playerList.get(playerIndex[1]);
+
             Game.run(this.p1,this.p2);
-            StartView.updatePlayers(this.p1);
-            StartView.updatePlayers(this.p2);
+            
             taOutput.appendText(
             this.p1.getPlayerName() + " vs " + this.p2.getPlayerName() + " | Result: " + this.p1.getPlayerName() + " points: " 
-            + this.p1.getJailTime() + "   " + this.p2.getPlayerName() + " points: " + this.p2.getJailTime() + "\n" + "\n");
+            + this.p1.getRoundPoints() + "   " + this.p2.getPlayerName() + " points: " + this.p2.getRoundPoints() + "\n" + "\n");
+
+            this.p1.setRoundPoints(0);
+            this.p1.setRoundPoints(0);
+            StartView.updatePlayers(this.p1);
+            StartView.updatePlayers(this.p2);
+
         }
     }
 
