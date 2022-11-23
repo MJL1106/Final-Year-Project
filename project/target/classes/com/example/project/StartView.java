@@ -2,9 +2,7 @@ package com.example.project;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -21,21 +19,14 @@ import javafx.stage.Stage;
 public class StartView implements Initializable {
     
     private Integer[] players = {2,4,6,8,10};
-    private static String[] match = new String[]{};
-    private static int[] playerIndex = new int[2];
     private int selected = 0;
-    private static Player p,p1,p2;
+    private static Player p;
     private static ArrayList<Player> playerList = new ArrayList<Player>();
     private static ArrayList<String> Players = new ArrayList<String>();
     private static ArrayList<String> Matches = new ArrayList<String>();
-    private String result = "";
 
     @FXML
     private Button createPlayers;
-
-    @FXML
-    private Button matches;
-
 
     @FXML
     private ChoiceBox<Integer> playerAmount;
@@ -67,6 +58,7 @@ public class StartView implements Initializable {
                 myview.createName(p,i);
     
                 Stage stage = new Stage();
+                stage.setTitle("Create Player");
                 stage.setScene(new Scene(root));  
                 stage.show();
             } catch(Exception e){
@@ -78,8 +70,6 @@ public class StartView implements Initializable {
 
     @FXML
     void startGame(ActionEvent event) {
-        String[] match = new String[]{};
-        int[] playerIndex = new int[2];
 
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
@@ -87,47 +77,31 @@ public class StartView implements Initializable {
         }
         Matches.addAll(Game.CreateMatches(Players));
 
-        int rounds = Matches.size();
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
+            Parent root = loader.load();
+            
+            GameView gameView = loader.getController();
+            gameView.displayName(Matches,playerList,selected);
 
-        for (int i = 0; i<rounds;i++){
-
-            match = Matches.get(i).split(" vs ");
-            playerIndex = Game.getIndexes(playerList, match, selected);
-
-
-            p1 = playerList.get(playerIndex[0]);
-            p2 = playerList.get(playerIndex[1]);
-            try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-                Parent root = loader.load();
-                
-                GameView gameView = loader.getController();
-                gameView.displayName(p1,p2);
-    
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));  
-                stage.show();
-            } catch(Exception e){
-                System.out.println(e);
-            }
+            Stage stage = new Stage();
+            stage.setTitle("Round Robin Matches");
+            stage.setScene(new Scene(root));  
+            stage.show();
+        } catch(Exception e){
+            System.out.println(e);
         }
+        start.setDisable(true);
     }
 
     
     @FXML
     void showPoints(ActionEvent event) {
-        taOutput.setText("");
+        taOutput.setText("Tournament Results" + "\n");
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
-            taOutput.appendText(p.getPlayerName() + " " + p.getJailTime() + "\n");
-        }
-    }
-
-    @FXML
-    void showMatches(ActionEvent event) {
-        for(int i = 0; i<Matches.size();i++){
-            taOutput.appendText(Matches.get(i).toString() + "\n");
+            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " " + p.getJailTime() + "\n");
         }
     }
 

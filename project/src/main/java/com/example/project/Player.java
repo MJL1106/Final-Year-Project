@@ -8,7 +8,7 @@ import java.util.Comparator;
  */
 public class Player {
     private String playerName,strategy;
-    private int jailTime;
+    private int jailTime,roundPoints;
     private ArrayList<String> choices = new ArrayList<String>();
 
     /**
@@ -89,7 +89,6 @@ public class Player {
     public int getJailTime(){
         return this.jailTime;
     }
-
 
     public static Comparator<Player> Comparator = new Comparator<Player>(){
         public int compare(Player p1, Player p2){

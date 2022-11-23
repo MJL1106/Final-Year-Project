@@ -30,6 +30,7 @@ public class Driver extends Application
       
       Parent root = FXMLLoader.load(getClass().getResource("startView.fxml"));
       Scene scene = new Scene(root);
+      stage.setTitle("Prisoner's Dilemma Game");
       stage.setScene(scene);
       stage.show();
       

@@ -11,9 +11,8 @@
       <Label layoutX="27.0" layoutY="79.0" prefHeight="17.0" prefWidth="123.0" text="Select Player Amount" />
       <ChoiceBox fx:id="playerAmount" layoutX="27.0" layoutY="109.0" prefWidth="150.0" />
       <Button fx:id="createPlayers" layoutX="209.0" layoutY="109.0" mnemonicParsing="false" onAction="#makePlayers" text="Create Players" />
-      <Button fx:id="start" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="150.0" text="Start" />
+      <Button fx:id="start" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="150.0" text="Start Tournament" />
       <TextArea fx:id="taOutput" layoutX="310.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="display" layoutX="515.0" layoutY="178.0" mnemonicParsing="false" onAction="#showPoints" text="Show Points" />
-      <Button fx:id="matches" layoutX="515.0" layoutY="141.0" mnemonicParsing="false" onAction="#showMatches" text="matches" />
+      <Button fx:id="display" layoutX="515.0" layoutY="178.0" mnemonicParsing="false" onAction="#showPoints" text="Show Results" />
    </children>
 </AnchorPane>

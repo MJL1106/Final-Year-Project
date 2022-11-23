@@ -9,8 +9,9 @@
 <AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MyView">
    <children>
       <TextField fx:id="Name1" layoutX="244.0" layoutY="72.0" promptText="Enter Name" />
-      <Button fx:id="names" layoutX="473.0" layoutY="72.0" mnemonicParsing="false" onAction="#enterNames" text="Enter Name" />
+      <Button fx:id="names" layoutX="434.0" layoutY="132.0" mnemonicParsing="false" onAction="#enterNames" text="Confirm" />
       <Label fx:id="label" alignment="TOP_CENTER" layoutX="244.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0" />
-      <ChoiceBox fx:id="Choice" layoutX="244.0" layoutY="115.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="Choice" layoutX="244.0" layoutY="132.0" prefWidth="150.0" />
+      <Label alignment="TOP_CENTER" layoutX="244.0" layoutY="107.0" prefHeight="17.0" prefWidth="149.0" text="Select Strategy:" />
    </children>
 </AnchorPane>
