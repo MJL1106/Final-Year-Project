@@ -36,6 +36,13 @@ public class Iterator {
         }
     }
 
+    
+    /** 
+     * Tallies players points for each round.
+     * 
+     * @param p1 Player 1 object
+     * @param p2 Player 2 object
+     */
     public static void tallyRoundPoints(Player p1, Player p2){
         String p1Choice,p2Choice;
         int[] points = new int[2];

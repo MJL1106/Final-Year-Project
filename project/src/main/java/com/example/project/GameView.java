@@ -12,6 +12,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Class displays the round robin tournament.
+ */
 public class GameView implements Initializable{
 
     private Player p1,p2;
@@ -30,13 +33,11 @@ public class GameView implements Initializable{
     private AnchorPane scenePane;
     
     /** 
-     * Displays player names of current players.
+     * Displays all match ups and their results in the Text Area.
      * 
-     * @param p1 player1
-     * @param p2 player2
-     * @param selected
-     * @param playerList
-     * @param matches
+     * @param selected total players selected for tournament
+     * @param playerList list of players created
+     * @param matches all match ups created for round robin
      */
     public void displayName(ArrayList<String> matches, ArrayList<Player> playerList, int selected){
         this.selected = selected;
@@ -72,6 +73,11 @@ public class GameView implements Initializable{
         }
     }
 
+    
+    /** 
+     * Exits the scene
+     * @param event closes the window
+     */
     @FXML
     void closeScene(ActionEvent event) {
         stage = (Stage) scenePane.getScene().getWindow();
@@ -79,6 +85,11 @@ public class GameView implements Initializable{
     }
 
 
+    
+    /** 
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }

@@ -14,7 +14,7 @@ public class TestStrategies {
         p2 = new Player("James)");
     }
 
-    @Test
+    @Test //Tests Steal vs Steal strategy
     public void testStealerStealer(){
         Strategies.alwaysSteal(p1);
         Strategies.alwaysSteal(p2);
@@ -23,7 +23,7 @@ public class TestStrategies {
         assertEquals(5,p2.getJailTime());
     }
 
-    @Test
+    @Test //Tests Steal vs Split strategy
     public void testStealerSplitter(){
         Strategies.alwaysSteal(p1);
         Strategies.alwaysSplit(p2);
@@ -32,7 +32,7 @@ public class TestStrategies {
         assertEquals(0,p2.getJailTime());
     }
 
-    @Test
+    @Test //Tests Tit for Tat vs Split strategy
     public void testTitForTatSplitter(){
         Strategies.alwaysSplit(p2);
         Strategies.titForTat(p1,p2);
@@ -41,7 +41,7 @@ public class TestStrategies {
         assertEquals(15,p2.getJailTime());
     }
 
-    @Test
+    @Test //Test Tit for Tat vs Stealer strategy
     public void testTitForTatStealer(){
         Strategies.alwaysSteal(p2);
         Strategies.titForTat(p1,p2);
@@ -50,7 +50,7 @@ public class TestStrategies {
         assertEquals(9,p2.getJailTime());
     }
 
-    @Test
+    @Test // Tests Tit for Tat vs Random stratgy
     public void testTitForTatRandomWins(){
         p2.setChoice("split");
         p2.setChoice("split");
@@ -63,7 +63,7 @@ public class TestStrategies {
         assertEquals(16, p2.getJailTime());
     }
 
-    @Test
+    @Test // Tests Tit for Tat vs Random stratgy
     public void testTitForTatRandomDraw(){
         p2.setChoice("split");
         p2.setChoice("split");

@@ -23,8 +23,8 @@ public class TestIterator {
         Iterator.tallyPoints(p1,p2);
         total1 = p1.getJailTime();
         total2 = p2.getJailTime();
-        assertEquals(3,total1);
-        assertEquals(3,total2);
+        assertEquals(3,total1, "Tests that splitting gives 3 points");
+        assertEquals(3,total2, "Tests that splitting gives 3 points");
     }
 
     @Test
@@ -38,8 +38,8 @@ public class TestIterator {
         Iterator.tallyPoints(p1,p2);
         total1 = p1.getJailTime();
         total2 = p2.getJailTime();
-        assertEquals(6,total1);
-        assertEquals(6,total2);
+        assertEquals(6,total1, "Tests that split,split gives 6 points");
+        assertEquals(6,total2, "Tests that split,split gives 6 points");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class TestIterator {
         Iterator.tallyPoints(p1,p2);
         total1 = p1.getJailTime();
         total2 = p2.getJailTime();
-        assertEquals(12,total1);
-        assertEquals(7,total2);
+        assertEquals(12,total1, "Tests multiple round game");
+        assertEquals(7,total2,"Tests multiple round game");
     }
 }

@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * Class is the controller to the GUI.
+ * Class displays GUI for creating players.
  */
 public class MyView implements Initializable{
 
@@ -45,7 +45,7 @@ public class MyView implements Initializable{
 
     
     /** 
-     * Sets the name of the players.
+     * Sets the name of the players and their strategy.
      * 
      * @param event on click
      */
@@ -59,6 +59,11 @@ public class MyView implements Initializable{
 
 
 
+    
+    /** 
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Choice.getItems().addAll(strategies);
@@ -67,6 +72,13 @@ public class MyView implements Initializable{
 
 
 
+    
+    /** 
+     * Displays the number of player being created.
+     * 
+     * @param player Player object to be created
+     * @param i numbered player
+     */
     public void createName(Player player, int i) {
         this.p = player;
         this.playerNumber = i;

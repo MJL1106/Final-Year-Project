@@ -7,10 +7,10 @@ package com.example.project;
 public class Dilemma {
     
     /** 
-     * Method implements basic prisoners dilemma to compare choices and set the players jail time.
+     * Method implements basic prisoners dilemma to compare choices and set the players points.
      * 
-     * @param p1 Player1 object
-     * @param p2 Player 2 object
+     * @param choice1 String of player 1 choice
+     * @param choice2 String of player 2 choice
      * @return int[] is the result of the dilemma
      */
     public static int[] compareChoice(String choice1, String choice2){

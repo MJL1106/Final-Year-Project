@@ -72,7 +72,7 @@ public class Player {
 
     
     /** 
-     * Sets the jail time of the Player.
+     * Sets the points of the Player.
      * 
      * @param time result of dilemma
      */
@@ -82,23 +82,39 @@ public class Player {
 
     
     /** 
-     * Gets the Players jail time.
+     * Gets the Players total points.
      * 
-     * @return int total time in jail
+     * @return int total points
      */
     public int getJailTime(){
         return this.jailTime;
     }
 
+    
+    /** 
+     * Sets the points for current round.
+     * 
+     * @param points result of dilemma
+     */
     public void setRoundPoints(int points){
         this.roundPoints = points;
     }
 
+    
+    /** 
+     * Gets the points for current round.
+     * 
+     * @return int total points for the round
+     */
     public int getRoundPoints(){
         return this.roundPoints;
     }
 
-
+    /**
+     * Compares points to order in decending order.
+     * Reference [2] adaptation
+     * @return int bigger value
+     */
     public static Comparator<Player> Comparator = new Comparator<Player>(){
         public int compare(Player p1, Player p2){
             int time1 = p1.getJailTime();

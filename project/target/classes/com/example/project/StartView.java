@@ -16,6 +16,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+
+/**
+ * Class displays the main page for the tournament.
+ */
 public class StartView implements Initializable {
     
     private Integer[] players = {2,4,6,8,10};
@@ -40,12 +44,23 @@ public class StartView implements Initializable {
     @FXML
     private TextArea taOutput;
 
+    
+    /** 
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         playerAmount.getItems().addAll(players);
     }
 
     
+    
+    /** 
+     * Creates players for the tournament.
+     * 
+     * @param event
+     */
     @FXML
     void makePlayers(ActionEvent event) {
         selected = playerAmount.getValue();
@@ -68,6 +83,12 @@ public class StartView implements Initializable {
         createPlayers.setDisable(true);
     }
 
+    
+    /** 
+     * Starts the tournament.
+     * 
+     * @param event
+     */
     @FXML
     void startGame(ActionEvent event) {
 
@@ -95,6 +116,12 @@ public class StartView implements Initializable {
     }
 
     
+    
+    /** 
+     * Displays the results of the tournament in decending order.
+     * 
+     * @param event
+     */
     @FXML
     void showPoints(ActionEvent event) {
         taOutput.setText("Tournament Results" + "\n");
@@ -105,11 +132,23 @@ public class StartView implements Initializable {
         }
     }
 
+    
+    /** 
+     * Stores player created in makePlayers().
+     * 
+     * @param player
+     */
     public static void storePlayers(Player player){
         p = player;
         playerList.add(p);
     }
 
+    
+    /** 
+     * Updates player's stored values that change in GameView.
+     * 
+     * @param player
+     */
     public static void updatePlayers(Player player){
         p = player;
         int location = 0;
