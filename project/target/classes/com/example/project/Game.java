@@ -44,7 +44,6 @@ public class Game {
             Strategies.alwaysSplit(p2);
         }
 
-        Iterator.tallyPoints(p1, p2);
         Iterator.tallyRoundPoints(p1, p2);
     }
     

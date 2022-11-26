@@ -20,9 +20,9 @@ public class TestIterator {
     public void testSingleRound(){
         p1.setChoice("split");
         p2.setChoice("split");
-        Iterator.tallyPoints(p1,p2);
-        total1 = p1.getJailTime();
-        total2 = p2.getJailTime();
+        Iterator.tallyRoundPoints(p1,p2);
+        total1 = p1.getRoundPoints();
+        total2 = p2.getRoundPoints();
         assertEquals(3,total1, "Tests that splitting gives 3 points");
         assertEquals(3,total2, "Tests that splitting gives 3 points");
     }
@@ -35,9 +35,9 @@ public class TestIterator {
         p1.setChoice("split");
         p2.setChoice("split");
 
-        Iterator.tallyPoints(p1,p2);
-        total1 = p1.getJailTime();
-        total2 = p2.getJailTime();
+        Iterator.tallyRoundPoints(p1,p2);
+        total1 = p1.getRoundPoints();
+        total2 = p2.getRoundPoints();
         assertEquals(6,total1, "Tests that split,split gives 6 points");
         assertEquals(6,total2, "Tests that split,split gives 6 points");
     }
@@ -56,9 +56,9 @@ public class TestIterator {
         p1.setChoice("steal");
         p2.setChoice("steal");
         
-        Iterator.tallyPoints(p1,p2);
-        total1 = p1.getJailTime();
-        total2 = p2.getJailTime();
+        Iterator.tallyRoundPoints(p1,p2);
+        total1 = p1.getRoundPoints();
+        total2 = p2.getRoundPoints();
         assertEquals(12,total1, "Tests multiple round game");
         assertEquals(7,total2,"Tests multiple round game");
     }

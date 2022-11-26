@@ -47,6 +47,7 @@ public class GameView implements Initializable{
         String[] match = new String[]{};
         int[] playerIndex = new int[2];
         int roundNum = 1;
+        int total1,total2;
         for (int i=0; i<matches.size();i++){
 
             if (i % (selected/2) == 0){
@@ -56,19 +57,24 @@ public class GameView implements Initializable{
 
             match = matches.get(i).split(" vs ");
             playerIndex = Game.getIndexes(playerList, match, selected);
-            this.p1 = playerList.get(playerIndex[0]);
-            this.p2 = playerList.get(playerIndex[1]);
+            p1 = playerList.get(playerIndex[0]);
+            p2 = playerList.get(playerIndex[1]);
 
-            Game.run(this.p1,this.p2);
+            Game.run(p1,p2);
             
             taOutput.appendText(
-            this.p1.getPlayerName() + " vs " + this.p2.getPlayerName() + " | Result: " + this.p1.getPlayerName() + " points: " 
-            + this.p1.getRoundPoints() + "   " + this.p2.getPlayerName() + " points: " + this.p2.getRoundPoints() + "\n" + "\n");
+            p1.getPlayerName() + " vs " + p2.getPlayerName() + " | Result: " + p1.getPlayerName() + " points: " 
+            + p1.getRoundPoints() + "   " + p2.getPlayerName() + " points: " + p2.getRoundPoints() + "\n" + "\n");
 
-            this.p1.setRoundPoints(0);
-            this.p1.setRoundPoints(0);
-            MainView.updatePlayers(this.p1);
-            MainView.updatePlayers(this.p2);
+            total1 = p1.getRoundPoints()+p1.getJailTime();
+            p1.setJailTime(total1);
+            total2 = p2.getRoundPoints()+p2.getJailTime();
+            p2.setJailTime(total2);
+
+            p1.setRoundPoints(0);
+            p2.setRoundPoints(0);
+            MainView.updatePlayers(p1);
+            MainView.updatePlayers(p2);
 
         }
     }
