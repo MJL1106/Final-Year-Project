@@ -45,7 +45,8 @@ public class GameView implements Initializable{
         p1.setStrategy(Choice1.getValue());
         p2.setStrategy(Choice2.getValue());
         Game.run(p1,p2);
-        taOutput.setText(p1.getPlayerName() + " points: " + p1.getJailTime() + "\n" + p2.getPlayerName() + " points: " + p2.getJailTime());
+        taOutput.setText(p1.getPlayerName() + ": " + p1.getChoices() + " points: " + p1.getJailTime() + 
+        "\n" + p2.getPlayerName() +": "+ p2.getChoices() + " points: " + p2.getJailTime());
         
     }
 
