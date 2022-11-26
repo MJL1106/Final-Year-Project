@@ -42,7 +42,8 @@ public class GameView implements Initializable {
         p1.setChoice(Choice1.getText());
         p2.setChoice(Choice2.getText());
         Iterator.tallyPoints(p1,p2);
-        taOutput.setText(p1.getPlayerName() + " points: " + p1.getJailTime() + "\n" + p2.getPlayerName() + " points: " + p2.getJailTime());
+        taOutput.setText(p1.getPlayerName() + ": " + p1.getChoices() + " points: " + p1.getJailTime() + 
+        "\n" + p2.getPlayerName() + ": " + p2.getChoices() + " points: " + p2.getJailTime());
         Choice1.setText("");
         Choice2.setText("");
 
