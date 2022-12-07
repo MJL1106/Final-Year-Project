@@ -1,0 +1,41 @@
+Project Diary
+10/10/22: 
+Begun the project. My aim for the next 2 weeks is to get the basic dilemma implemented and 
+have a command line to enter choices.
+- created an initial player object with tdd
+11/10/22:
+- added more setters getters to the player object
+13/10/22:
+Today I implemented the basic prisoner's dilemma by comparing users input.
+There are some small problems that I will fix like being able to enter
+defect/cooperate in the command line in any format
+18/10/22:
+I now have a basic terminal interface to prompt the players to enter their
+name and choice of defect/cooperate which then gets stored in the 
+player object
+31/10/22:
+Had family over the last week so had little time to work on the project
+but I did manage to get a simple GUI working with javaFX and scenebuilder
+01/11/22:
+Up to this point I am a little behind on the milestones but 
+over the next week I will make an initial GUI, create the iterated dilemma
+and possibly add some strategies
+09/11/22:
+I have now make the dilemma iterated for 5 rounds and added some strategies that players
+can select from a drop down menu. I will now work on getting the strategies to
+work for head to head game and update the GUI to incorporate it all over the next
+week
+15/11/22:
+Head to Head is now working and I also updated the gui so that players can be 
+created using a drop down menu to select the amount of players the user wants
+16/11/22:
+I am now on schedule for the milestones and over the last 2 weeks I will make
+updates to the GUI to implement the tournament feature and finish the javadoc 
+23/11/22: 
+The program is finished for this term and I will spend the remainding time writing my
+report and checking over the program to find any hidden errors
+26/11/22:
+Fixed remaining small errors, code is finished. Overall I am happy with the progress I made
+this term and I completed all the milestones that I set for myself. I would have liked to 
+implement more strategies than just the select 4 that I chose but I decided that it would be more
+beneficial to get the core concepts implemented as adding new strategies should be straight forward.
