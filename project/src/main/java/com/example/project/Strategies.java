@@ -61,4 +61,19 @@ public class Strategies {
             p.setChoice(arr[selected]);
         }
     }
+
+    public static void Grudger(Player p, Player opponent){
+        String oppChoice;
+        p.setChoice("split");
+        for (int i = 1; i<5; i++){
+            oppChoice = opponent.getChoices().get(i-1);
+            if (oppChoice.equals("split")){
+                p.setChoice("split");
+            }else{
+                for(int j = i; j<5; j++){
+                    p.setChoice("steal");
+                }
+            }
+        }
+    }
 }
