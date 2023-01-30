@@ -76,5 +76,13 @@ public class TestStrategies {
         assertEquals(14, p2.getRoundPoints());
     }
 
+    @Test // Tests Grudger vs Stealer
+    public void testGrudgerStealer(){
+        Strategies.alwaysSteal(p2);
+        Strategies.Grudger(p1, p2);
+        Iterator.tallyRoundPoints(p1, p2);
+        assertEquals(4,p1.getRoundPoints());
+        assertEquals(9,p2.getRoundPoints());
+    }
 
 }

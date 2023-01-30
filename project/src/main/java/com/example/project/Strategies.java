@@ -72,6 +72,7 @@ public class Strategies {
             }else{
                 for(int j = i; j<5; j++){
                     p.setChoice("steal");
+                    break;
                 }
             }
         }
