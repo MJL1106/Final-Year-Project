@@ -61,7 +61,12 @@ public class Strategies {
             p.setChoice(arr[selected]);
         }
     }
-
+    /**
+     * Method for Grudger strategy.
+     * 
+     * @param p Player object
+     * @param opponent Player object of opponent
+     */
     public static void Grudger(Player p, Player opponent){
         String oppChoice;
         p.setChoice("split");
@@ -74,6 +79,25 @@ public class Strategies {
                     p.setChoice("steal");
                     break;
                 }
+            }
+        }
+    }
+    /**
+     * Method for Alternator strategy.
+     * 
+     * @param p Player object
+     */
+    public static void Alternator(Player p){
+        String[] arr = {"split","steal"};
+        int selected;
+        Random random = new Random();
+        selected = random.nextInt(arr.length);
+        p.setChoice(arr[selected]);
+        for (int i = 1; i<5; i++){
+            if ((p.getChoices().get(i-1)).equals("split")){
+                p.setChoice("steal");
+            }else{
+                p.setChoice("split");
             }
         }
     }

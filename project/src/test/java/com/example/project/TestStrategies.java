@@ -1,6 +1,7 @@
 package com.example.project;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -83,6 +84,14 @@ public class TestStrategies {
         Iterator.tallyRoundPoints(p1, p2);
         assertEquals(4,p1.getRoundPoints());
         assertEquals(9,p2.getRoundPoints());
+    }
+
+    @Test // Tests Alternator Strategy vs Stealer
+    public void testAlternator(){
+        Strategies.Alternator(p1);
+        Strategies.alwaysSteal(p2);
+        Iterator.tallyRoundPoints(p1, p2);
+        assertTrue(((p1.getRoundPoints() == 2)) || (p1.getRoundPoints() == 3));
     }
 
 }

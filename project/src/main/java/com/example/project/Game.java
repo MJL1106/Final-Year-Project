@@ -25,6 +25,8 @@ public class Game {
             Strategies.alwaysSplit(p1);
         }else if(p1Strategy.equals("Random")){
             Strategies.Random(p1);
+        }else if(p1Strategy.equals("Alternator")){
+            Strategies.Alternator(p1);
         }
 
         if(p2Strategy.equals("Stealer")){
@@ -33,6 +35,8 @@ public class Game {
             Strategies.alwaysSplit(p2);
         }else if(p2Strategy.equals("Random")){
             Strategies.Random(p2);
+        }else if(p2Strategy.equals("Alternator")){
+            Strategies.Alternator(p2);
         }
 
         if(p1Strategy.equals("Tit For Tat") && (p2Strategy.equals("Grudger"))){
