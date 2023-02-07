@@ -44,3 +44,8 @@ Started to implement more strategies, starting with the grudger strategy. I need
 efficient to play strategies against each other as I ran into some problems today trying to implement
 another strategy that relies on other people actions rather than a constant splitter/stealer that always
 does the same thing each round
+07/02/22
+Implemented an alternator strategy that randomly chooses its first choice and then alternates between
+splitting and stealing after that. This was quite simple to implement. My next steps will be to 
+redesign how the head to head works depending on what strategies are chosen to make it easier to implement
+more complex strategies.
