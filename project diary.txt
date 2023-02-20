@@ -39,13 +39,19 @@ Fixed remaining small errors, code is finished. Overall I am happy with the prog
 this term and I completed all the milestones that I set for myself. I would have liked to 
 implement more strategies than just the select 4 that I chose but I decided that it would be more
 beneficial to get the core concepts implemented as adding new strategies should be straight forward.
-30/01/22
+30/01/23
 Started to implement more strategies, starting with the grudger strategy. I need to make it more
 efficient to play strategies against each other as I ran into some problems today trying to implement
 another strategy that relies on other people actions rather than a constant splitter/stealer that always
 does the same thing each round
-07/02/22
+07/02/23
 Implemented an alternator strategy that randomly chooses its first choice and then alternates between
 splitting and stealing after that. This was quite simple to implement. My next steps will be to 
 redesign how the head to head works depending on what strategies are chosen to make it easier to implement
 more complex strategies.
+20/02/23
+Spent last few weeks planning the redesign of the head to head. Started implementing it by updating the strategy names,
+and adding the opponent parameter to every strategy even if they are not needed. This will make it easier when adding
+new strategies that take the opponent into consideration. I also added a new method in Strategies.java which will determine
+the players strategy choice. This will mean that the massive chunk of code in Game.java can be deleted making the overall 
+program cleaner and more efficient to add an exhaustive amount of strategies.
