@@ -12,11 +12,13 @@ public class TestStrategies {
     @BeforeEach
     public void makePlayer(){
         p1 = new Player("Matthew");
-        p2 = new Player("James)");
+        p2 = new Player("James");
     }
 
     @Test //Tests Steal vs Steal strategy
     public void testStealerStealer(){
+        p1.setStrategy("alwaysSteal");
+        
         Strategies.alwaysSteal(p1);
         Strategies.alwaysSteal(p2);
         Iterator.tallyRoundPoints(p1,p2);
