@@ -20,45 +20,45 @@ public class Game {
         String p2Strategy = p2.getStrategy();
 
         if(p1Strategy.equals("Stealer")){
-            Strategies.alwaysSteal(p1);
+            Strategies.Stealer(p1,p2);
         }else if(p1Strategy.equals("Splitter")){
-            Strategies.alwaysSplit(p1);
+            Strategies.Splitter(p1,p2);
         }else if(p1Strategy.equals("Random")){
-            Strategies.Random(p1);
+            Strategies.Random(p1,p2);
         }else if(p1Strategy.equals("Alternator")){
-            Strategies.Alternator(p1);
+            Strategies.Alternator(p1,p2);
         }
 
         if(p2Strategy.equals("Stealer")){
-            Strategies.alwaysSteal(p2);
+            Strategies.Stealer(p2,p1);
         }else if(p2Strategy.equals("Splitter")){
-            Strategies.alwaysSplit(p2);
+            Strategies.Splitter(p2,p1);
         }else if(p2Strategy.equals("Random")){
-            Strategies.Random(p2);
+            Strategies.Random(p2,p1);
         }else if(p2Strategy.equals("Alternator")){
-            Strategies.Alternator(p2);
+            Strategies.Alternator(p2,p1);
         }
 
         if(p1Strategy.equals("Tit For Tat") && (p2Strategy.equals("Grudger"))){
-            Strategies.alwaysSplit(p1);
-            Strategies.alwaysSplit(p2);
+            Strategies.Splitter(p1,p2);
+            Strategies.Splitter(p2,p1);
         }else if(p1Strategy.equals("Grudger") && (p2Strategy.equals("Tit For Tat"))){
-            Strategies.alwaysSplit(p1);
-            Strategies.alwaysSplit(p2);
+            Strategies.Splitter(p1,p2);
+            Strategies.Splitter(p2,p1);
         } else if(p1Strategy.equals("Tit For Tat") && !p1Strategy.equals(p2Strategy)){
-            Strategies.titForTat(p1, p2);
+            Strategies.TitForTat(p1, p2);
         }else if(p2Strategy.equals("Tit For Tat") && !p2Strategy.equals(p1Strategy)){
-            Strategies.titForTat(p2, p1);
+            Strategies.TitForTat(p2, p1);
         }else if(p1Strategy.equals("Tit For Tat") && (p1Strategy.equals(p2Strategy))){
-            Strategies.alwaysSplit(p1);
-            Strategies.alwaysSplit(p2);
+            Strategies.Splitter(p1,p2);
+            Strategies.Splitter(p2,p1);
         }else if(p1Strategy.equals("Grudger") && !p1Strategy.equals(p2Strategy)){
             Strategies.Grudger(p1, p2);
         }else if(p2Strategy.equals("Grudger") && !p2Strategy.equals(p1Strategy)){
             Strategies.Grudger(p2, p1);
         }else if(p1Strategy.equals("Grudger") && (p1Strategy.equals(p2Strategy))){
-            Strategies.alwaysSplit(p1);
-            Strategies.alwaysSplit(p2);
+            Strategies.Splitter(p1,p2);
+            Strategies.Splitter(p2,p1);
         }
         Iterator.tallyRoundPoints(p1, p2);
     }

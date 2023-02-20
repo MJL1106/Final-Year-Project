@@ -17,10 +17,11 @@ public class TestStrategies {
 
     @Test //Tests Steal vs Steal strategy
     public void testStealerStealer(){
-        p1.setStrategy("alwaysSteal");
-        
-        Strategies.alwaysSteal(p1);
-        Strategies.alwaysSteal(p2);
+        p1.setStrategy("Stealer");
+        p2.setStrategy("Stealer");
+        Strategies.Choice(p1.getStrategy(), p1, p2);
+        Strategies.Choice(p2.getStrategy(), p2, p1);
+
         Iterator.tallyRoundPoints(p1,p2);
         assertEquals(5,p1.getRoundPoints());
         assertEquals(5,p2.getRoundPoints());
@@ -28,8 +29,12 @@ public class TestStrategies {
 
     @Test //Tests Steal vs Split strategy
     public void testStealerSplitter(){
-        Strategies.alwaysSteal(p1);
-        Strategies.alwaysSplit(p2);
+        p1.setStrategy("Stealer");
+        p2.setStrategy("Splitter");
+
+        Strategies.Choice(p1.getStrategy(), p1, p2);
+        Strategies.Choice(p2.getStrategy(), p2, p1);
+
         Iterator.tallyRoundPoints(p1,p2);
         assertEquals(25,p1.getRoundPoints());
         assertEquals(0,p2.getRoundPoints());
@@ -37,8 +42,12 @@ public class TestStrategies {
 
     @Test //Tests Tit for Tat vs Split strategy
     public void testTitForTatSplitter(){
-        Strategies.alwaysSplit(p2);
-        Strategies.titForTat(p1,p2);
+        p2.setStrategy("Splitter");
+        p1.setStrategy("TitForTat");
+
+        Strategies.Choice(p2.getStrategy(),p2,p1);
+        Strategies.Choice(p1.getStrategy(),p1,p2);
+
         Iterator.tallyRoundPoints(p1,p2);
         assertEquals(15,p1.getRoundPoints());
         assertEquals(15,p2.getRoundPoints());
@@ -46,8 +55,12 @@ public class TestStrategies {
 
     @Test //Test Tit for Tat vs Stealer strategy
     public void testTitForTatStealer(){
-        Strategies.alwaysSteal(p2);
-        Strategies.titForTat(p1,p2);
+        p2.setStrategy("Stealer");
+        p1.setStrategy("TitForTat");
+
+        Strategies.Choice(p2.getStrategy(),p2,p1);
+        Strategies.Choice(p1.getStrategy(),p1,p2);
+
         Iterator.tallyRoundPoints(p1,p2);
         assertEquals(4,p1.getRoundPoints());
         assertEquals(9,p2.getRoundPoints());
@@ -60,7 +73,10 @@ public class TestStrategies {
         p2.setChoice("steal");
         p2.setChoice("split");
         p2.setChoice("steal");
-        Strategies.titForTat(p1, p2);
+
+        p1.setStrategy("TitForTat");
+        Strategies.Choice(p1.getStrategy(), p1, p2);
+
         Iterator.tallyRoundPoints(p1, p2);
         assertEquals(11, p1.getRoundPoints());
         assertEquals(16, p2.getRoundPoints());
@@ -73,7 +89,10 @@ public class TestStrategies {
         p2.setChoice("steal");
         p2.setChoice("split");
         p2.setChoice("split");
-        Strategies.titForTat(p1, p2);
+        
+        p1.setStrategy("TitForTat");
+        Strategies.Choice(p1.getStrategy(), p1, p2);
+        
         Iterator.tallyRoundPoints(p1, p2);
         assertEquals(14, p1.getRoundPoints());
         assertEquals(14, p2.getRoundPoints());
@@ -81,8 +100,12 @@ public class TestStrategies {
 
     @Test // Tests Grudger vs Stealer
     public void testGrudgerStealer(){
-        Strategies.alwaysSteal(p2);
-        Strategies.Grudger(p1, p2);
+        p2.setStrategy("Stealer");
+        p1.setStrategy("Grudger");
+
+        Strategies.Choice(p2.getStrategy(), p2, p1);
+        Strategies.Choice(p1.getStrategy(),p1,p2);
+
         Iterator.tallyRoundPoints(p1, p2);
         assertEquals(4,p1.getRoundPoints());
         assertEquals(9,p2.getRoundPoints());
@@ -90,8 +113,12 @@ public class TestStrategies {
 
     @Test // Tests Alternator Strategy vs Stealer
     public void testAlternator(){
-        Strategies.Alternator(p1);
-        Strategies.alwaysSteal(p2);
+        p1.setStrategy("Alternator");
+        p2.setStrategy("Stealer");
+
+        Strategies.Choice(p1.getStrategy(),p1,p2);
+        Strategies.Choice(p2.getStrategy(), p2, p1);
+        
         Iterator.tallyRoundPoints(p1, p2);
         assertTrue(((p1.getRoundPoints() == 2)) || (p1.getRoundPoints() == 3));
     }

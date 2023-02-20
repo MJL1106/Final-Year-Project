@@ -7,13 +7,43 @@ import java.util.Random;
  */
 public class Strategies {
 
+
+    /**
+     * This Method finds which strategy player p has chosen.
+     * 
+     * 
+     * @param choice Strategy choice made by the player p
+     * @param p Player object who chose the strategy
+     * @param opponent Player opponent 
+     */
+    public static void Choice(String choice, Player p, Player opponent){
+        if (choice.equals("Stealer")){
+            Stealer(p,opponent);
+        }
+        if (choice.equals("Splitter")){
+            Splitter(p,opponent);
+        }
+        if (choice.equals("TitForTat")){
+            TitForTat(p, opponent);
+        }
+        if (choice.equals("Random")){
+            Random(p, opponent);
+        }
+        if (choice.equals("Grudger")){
+            Grudger(p, opponent);
+        }
+        if (choice.equals("Alternator")){
+            Alternator(p,opponent);
+        }
+    }
+
     
     /** 
      * Method for stealer strategy.
      * 
      * @param p Player object
      */
-    public static void alwaysSteal(Player p){
+    public static void Stealer(Player p, Player opponent){
         for (int i = 0; i<5; i++){
             p.setChoice("steal");
         }
@@ -25,7 +55,7 @@ public class Strategies {
      * 
      * @param p Player object
      */
-    public static void alwaysSplit(Player p){
+    public static void Splitter(Player p, Player opponent){
         for (int i = 0; i<5; i++){
             p.setChoice("split");
         }
@@ -38,7 +68,7 @@ public class Strategies {
      * @param p Player object
      * @param opponent Player opponent object
      */
-    public static void titForTat(Player p, Player opponent){
+    public static void TitForTat(Player p, Player opponent){
         p.setChoice("split");
         for (int i = 1; i<5; i++){
             p.setChoice(opponent.getChoices().get(i-1));
@@ -51,7 +81,7 @@ public class Strategies {
      * 
      * @param p Player object
      */
-    public static void Random(Player p){
+    public static void Random(Player p, Player opponent){
         String[] arr = {"split","steal"};
         int selected;
         Random random = new Random();
@@ -87,7 +117,7 @@ public class Strategies {
      * 
      * @param p Player object
      */
-    public static void Alternator(Player p){
+    public static void Alternator(Player p, Player opponent){
         String[] arr = {"split","steal"};
         int selected;
         Random random = new Random();
