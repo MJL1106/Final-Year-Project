@@ -44,9 +44,7 @@ public class Strategies {
      * @param p Player object
      */
     public static void Stealer(Player p, Player opponent){
-        for (int i = 0; i<5; i++){
-            p.setChoice("steal");
-        }
+        p.setChoice("steal");
     }
 
     
@@ -56,9 +54,7 @@ public class Strategies {
      * @param p Player object
      */
     public static void Splitter(Player p, Player opponent){
-        for (int i = 0; i<5; i++){
-            p.setChoice("split");
-        }
+        p.setChoice("split");
     }
 
     
@@ -69,9 +65,10 @@ public class Strategies {
      * @param opponent Player opponent object
      */
     public static void TitForTat(Player p, Player opponent){
-        p.setChoice("split");
-        for (int i = 1; i<5; i++){
-            p.setChoice(opponent.getChoices().get(i-1));
+        if(p.getChoices().isEmpty()){
+            p.setChoice("split");  
+        }else{
+            p.setChoice(opponent.getChoices().get(opponent.getChoices().size()-1));
         }
     }
 
@@ -86,11 +83,11 @@ public class Strategies {
         int selected;
         Random random = new Random();
 
-        for (int i = 0; i<5; i++){
-            selected = random.nextInt(arr.length);
-            p.setChoice(arr[selected]);
-        }
+        selected = random.nextInt(arr.length);
+        p.setChoice(arr[selected]);
     }
+
+
     /**
      * Method for Grudger strategy.
      * 
@@ -98,19 +95,14 @@ public class Strategies {
      * @param opponent Player object of opponent
      */
     public static void Grudger(Player p, Player opponent){
-        String oppChoice;
-        p.setChoice("split");
-        for (int i = 1; i<5; i++){
-            oppChoice = opponent.getChoices().get(i-1);
-            if (oppChoice.equals("split")){
-                p.setChoice("split");
-            }else{
-                for(int j = i; j<5; j++){
-                    p.setChoice("steal");
-                    break;
-                }
-            }
+        if(p.getChoices().isEmpty()){
+            p.setChoice("split");
+        }else if(opponent.getChoices().contains("steal")){
+            p.setChoice("steal");
+        }else{
+            p.setChoice("split");
         }
+        
     }
     /**
      * Method for Alternator strategy.
@@ -121,14 +113,14 @@ public class Strategies {
         String[] arr = {"split","steal"};
         int selected;
         Random random = new Random();
-        selected = random.nextInt(arr.length);
-        p.setChoice(arr[selected]);
-        for (int i = 1; i<5; i++){
-            if ((p.getChoices().get(i-1)).equals("split")){
-                p.setChoice("steal");
-            }else{
-                p.setChoice("split");
-            }
+
+        if(p.getChoices().isEmpty()){
+            selected = random.nextInt(arr.length);
+            p.setChoice(arr[selected]);
+        }else if ((p.getChoices().get(p.getChoices().size()-1)).equals("split")){
+            p.setChoice("steal");
+        }else{
+            p.setChoice("split");
         }
     }
 }

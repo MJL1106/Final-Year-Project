@@ -73,6 +73,9 @@ public class GameView implements Initializable{
 
             p1.setRoundPoints(0);
             p2.setRoundPoints(0);
+            p1.resetChoices();
+            p2.resetChoices();
+            
             MainView.updatePlayers(p1);
             MainView.updatePlayers(p2);
 

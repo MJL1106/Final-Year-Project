@@ -55,3 +55,9 @@ and adding the opponent parameter to every strategy even if they are not needed.
 new strategies that take the opponent into consideration. I also added a new method in Strategies.java which will determine
 the players strategy choice. This will mean that the massive chunk of code in Game.java can be deleted making the overall 
 program cleaner and more efficient to add an exhaustive amount of strategies.
+27/02/23
+Fully implemented my updated way to face players against each other. Now the points are tallied 1 at a time. The arraylist gets
+updated 1 round at a time which makes it easier to face a tit for tat vs stealer as tft will split first round regardless, and wont need
+the splitters code to run before it anymore. I'm happy with how I have implemented the code that I spend a long time planning out. My next
+aims for the project are to add loads of strategies, make the number of rounds played random, possibly add a different tournament style like
+swiss system, and to make charts for determining the best strategies.

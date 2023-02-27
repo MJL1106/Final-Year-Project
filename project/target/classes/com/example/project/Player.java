@@ -70,6 +70,13 @@ public class Player {
         return this.choices;
     }
 
+    /**
+     * Resets a players choices after each head to head match.
+     * 
+     */
+    public void resetChoices() {
+        this.choices.removeAll(this.choices);
+    }
     
     /** 
      * Sets the points of the Player.

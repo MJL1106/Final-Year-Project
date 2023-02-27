@@ -22,17 +22,15 @@ public class Iterator {
         int arrLength = p1.getChoices().size();
 
         for (int i = 0; i<=arrLength-1; i++){
-            if ((arrLength-i)<=5){
-                p1Choice = p1.getChoices().get(i);
-                p2Choice = p2.getChoices().get(i);
+            p1Choice = p1.getChoices().get(i);
+            p2Choice = p2.getChoices().get(i);
     
-                points = Dilemma.compareChoice(p1Choice,p2Choice);
+            points = Dilemma.compareChoice(p1Choice,p2Choice);
     
-                total1 = total1 + Array.getInt(points,0);
-                total2 = total2 + Array.getInt(points,1);
-                p1.setRoundPoints(total1);
-                p2.setRoundPoints(total2);
-            }
+            total1 = total1 + Array.getInt(points,0);
+            total2 = total2 + Array.getInt(points,1);
+            p1.setRoundPoints(total1);
+            p2.setRoundPoints(total2);
         }
     }
 }
