@@ -17,22 +17,25 @@ public class Strategies {
      * @param opponent Player opponent 
      */
     public static void Choice(String choice, Player p, Player opponent){
-        if (choice.equals("Stealer")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("Stealer")){
             Stealer(p,opponent);
         }
-        if (choice.equals("Splitter")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("Splitter")){
             Splitter(p,opponent);
         }
-        if (choice.equals("TitForTat")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("TitForTat")){
             TitForTat(p, opponent);
         }
-        if (choice.equals("Random")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("SuspiciousTitForTat")){
+            SuspiciousTitForTat(p, opponent);
+        }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("Random")){
             Random(p, opponent);
         }
-        if (choice.equals("Grudger")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("Grudger")){
             Grudger(p, opponent);
         }
-        if (choice.equals("Alternator")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("Alternator")){
             Alternator(p,opponent);
         }
     }
@@ -58,7 +61,7 @@ public class Strategies {
     }
 
     
-    /** 
+    /**
      * Method for tit for tat strategy.
      * 
      * @param p Player object
@@ -66,13 +69,32 @@ public class Strategies {
      */
     public static void TitForTat(Player p, Player opponent){
         if(p.getChoices().isEmpty()){
-            p.setChoice("split");  
+            p.setChoice("split"); 
         }else{
-            p.setChoice(opponent.getChoices().get(opponent.getChoices().size()-1));
+            int prevChoice = p.getChoices().size()-1;
+            String choice = opponent.getChoices().get(prevChoice).toString();
+            p.setChoice(opponent.getChoices().get(prevChoice));
         }
     }
 
-    
+       /**
+     * Method for tit for tat strategy.
+     * 
+     * @param p Player object
+     * @param opponent Player opponent object
+     */
+    public static void SuspiciousTitForTat(Player p, Player opponent){
+        if(p.getChoices().isEmpty()){
+            p.setChoice("steal");
+        }else{
+            int prevChoice = p.getChoices().size()-1;
+            String choice = opponent.getChoices().get(prevChoice).toString();
+            p.setChoice(opponent.getChoices().get(prevChoice));
+        }
+    }
+
+
+
     /** 
      * Method for Random strategy.
      * 

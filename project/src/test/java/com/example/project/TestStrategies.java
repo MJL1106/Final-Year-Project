@@ -48,7 +48,7 @@ public class TestStrategies {
     @Test //Tests Tit for Tat vs Split strategy
     public void testTitForTatSplitter(){
         p2.setStrategy("Splitter");
-        p1.setStrategy("TitForTat");
+        p1.setStrategy("Tit For Tat");
 
         for (int i = 0; i<5; i++){
             Strategies.Choice(p1.getStrategy(),p1,p2);
@@ -62,7 +62,7 @@ public class TestStrategies {
     @Test //Test Tit for Tat vs Stealer strategy
     public void testTitForTatStealer(){
         p2.setStrategy("Stealer");
-        p1.setStrategy("TitForTat");
+        p1.setStrategy("Tit For Tat");
 
         for (int i = 0; i<5; i++){
             Strategies.Choice(p1.getStrategy(),p1,p2);
@@ -75,7 +75,7 @@ public class TestStrategies {
 
     @Test // Tests Tit for Tat vs Random stratgy
     public void testTitForTatRandomWins(){
-        p1.setStrategy("TitForTat");
+        p1.setStrategy("Tit For Tat");
         
         
         Strategies.Choice(p1.getStrategy(),p1,p2);
@@ -96,7 +96,7 @@ public class TestStrategies {
 
     @Test // Tests Tit for Tat vs Random stratgy
     public void testTitForTatRandomDraw(){
-        p1.setStrategy("TitForTat");
+        p1.setStrategy("Tit For Tat");
 
         Strategies.Choice(p1.getStrategy(),p1,p2);
         p2.setChoice("split");
@@ -140,6 +140,34 @@ public class TestStrategies {
         }
         Iterator.tallyRoundPoints(p1, p2);
         assertTrue(((p1.getRoundPoints() == 2)) || (p1.getRoundPoints() == 3));
+    }
+
+    @Test // Tests Alternator Strategy vs Stealer
+    public void testAlternatorTitForTat(){
+        p1.setStrategy("Alternator");
+        p2.setStrategy("Tit For Tat");
+
+        for (int i = 0; i<5; i++){
+            Strategies.Choice(p1.getStrategy(),p1,p2);
+            Strategies.Choice(p2.getStrategy(), p2, p1);
+        }
+        Iterator.tallyRoundPoints(p1, p2);
+        assertTrue(((p1.getRoundPoints() == 10)) || (p1.getRoundPoints() == 13));
+    }
+
+    @Test // Tests Grudger vs Stealer
+    public void testTitForTatSuspicious(){
+        p1.setStrategy("Tit For Tat");
+        p2.setStrategy("Suspicious Tit For Tat");
+
+        for (int i = 0; i<5; i++){
+            Strategies.Choice(p1.getStrategy(), p1, p2);
+            Strategies.Choice(p2.getStrategy(), p2, p1);;
+        }
+
+        Iterator.tallyRoundPoints(p1, p2);
+        assertEquals(10,p1.getRoundPoints());
+        assertEquals(15,p2.getRoundPoints());
     }
 
 }
