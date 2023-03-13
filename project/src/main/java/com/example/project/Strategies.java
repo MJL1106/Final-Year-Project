@@ -1,5 +1,6 @@
 package com.example.project;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -37,6 +38,12 @@ public class Strategies {
         }
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("Alternator")){
             Alternator(p,opponent);
+        }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("Pavlov")){
+            Pavlov(p, opponent);
+        }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("HardMajority")){
+            HardMajority(p, opponent);
         }
     }
 
@@ -130,6 +137,7 @@ public class Strategies {
      * Method for Alternator strategy.
      * 
      * @param p Player object
+     * @param opponent Opponent player object
      */
     public static void Alternator(Player p, Player opponent){
         String[] arr = {"split","steal"};
@@ -143,6 +151,56 @@ public class Strategies {
             p.setChoice("steal");
         }else{
             p.setChoice("split");
+        }
+    }
+
+
+    /**
+     * Method for Pavlov strategy
+     * 
+     * @param p Player object
+     * @param opponent Opponent player object
+     */
+    public static void Pavlov(Player p, Player opponent) {
+        if (p.getChoices().isEmpty()) {
+            p.setChoice("split");
+        } else {
+            int prevChoice = Math.min(p.getChoices().size() - 1, opponent.getChoices().size() - 1);
+            String choiceP = p.getChoices().get(prevChoice).toString();
+            String choiceOpp = opponent.getChoices().get(prevChoice).toString();
+            if (choiceP.equals(choiceOpp)) {
+                p.setChoice(choiceP);
+            } else if (choiceP.equals("split")) {
+                p.setChoice("steal");
+            } else {
+                p.setChoice("split");
+            }
+        }
+    }
+
+    /**
+     * Method for Hard Majority strategy
+     * 
+     * @param p Player object
+     * @param opponent Opponent player object
+     */
+    public static void HardMajority(Player p, Player opponent){
+        int totalSplit = 0,totalSteal = 0;
+        if(p.getChoices().isEmpty()){
+            p.setChoice("steal");
+        }else{
+            for (int i =0; i < opponent.getChoices().size(); i++){
+                if (opponent.getChoices().get(i).toString().equals("split")){
+                    totalSplit+=1;
+                }else{
+                    totalSteal+=1;
+                }
+            }
+            if(totalSplit>totalSteal){
+                p.setChoice("split");
+            }else{
+                p.setChoice("steal");
+            }
         }
     }
 }

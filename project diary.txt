@@ -64,3 +64,6 @@ swiss system, and to make charts for determining the best strategies.
 04/03/23
 Today took longer than expected as there was some really small problem with the strategy that was well hidden. I eventually found it and everything
 works how its inteded to work.
+13/03/2023
+Smooth day for implementing two more strategies, Pavlov and Hard majority. The changes that I made are proving to make it way easier to implement
+more complicated strategies with less issues. 
