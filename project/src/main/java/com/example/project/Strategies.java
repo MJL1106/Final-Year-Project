@@ -30,6 +30,12 @@ public class Strategies {
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("SuspiciousTitForTat")){
             SuspiciousTitForTat(p, opponent);
         }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("ForgivingTitForTat")){
+            ForgivingTitForTat(p, opponent);
+        }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("TwoTitsForTat")){
+            TwoTitsForTat(p, opponent);
+        }
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("Random")){
             Random(p, opponent);
         }
@@ -44,6 +50,9 @@ public class Strategies {
         }
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("HardMajority")){
             HardMajority(p, opponent);
+        }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("WinStayLoseSwap")){
+            WinStayLoseSwap(p, opponent);
         }
     }
 
@@ -100,7 +109,51 @@ public class Strategies {
         }
     }
 
+    /**
+     * Method for Forgiving Tit For Tat strategy.
+     * 
+     * @param p Player object
+     * @param opponent Player object
+     */
+    public static void ForgivingTitForTat(Player p, Player opponent){
+        int opponentPast = 2;
+        if(p.getChoices().isEmpty()){
+            p.setChoice("split");
+        }else{
+            int prevChoice = p.getChoices().size()-1;
+            String choice = opponent.getChoices().get(prevChoice).toString();
+            ArrayList<String> recentChoices = new ArrayList<String>();
+            recentChoices.addAll(opponent.getChoices().subList(Math.max(0,prevChoice-opponentPast),prevChoice));
+            if(choice.equals("steal") && !recentChoices.contains("split")){
+                p.setChoice("split");
+            }else{
+                p.setChoice(choice);
+            }
+        }
+    }
 
+    /**
+     * Method for two tits for tat strategy.
+     * 
+     * @param p Player object
+     * @param opponent Player opponent object
+     */
+    public static void TwoTitsForTat(Player p, Player opponent){
+        int opponentPast = 2;
+        if(p.getChoices().isEmpty()){
+            p.setChoice("split");
+        }else{
+            int prevChoice = p.getChoices().size()-1;
+            String choice = opponent.getChoices().get(prevChoice).toString();
+            ArrayList<String> recentChoices = new ArrayList<String>();
+            recentChoices.addAll(opponent.getChoices().subList(Math.max(0,prevChoice-opponentPast),prevChoice));
+            if(recentChoices.contains("steal")){
+                p.setChoice("steal");
+            }else{
+                p.setChoice(choice);
+            }
+        }
+    }
 
     /** 
      * Method for Random strategy.
@@ -156,7 +209,7 @@ public class Strategies {
 
 
     /**
-     * Method for Pavlov strategy
+     * Method for Pavlov strategy.
      * 
      * @param p Player object
      * @param opponent Opponent player object
@@ -179,7 +232,7 @@ public class Strategies {
     }
 
     /**
-     * Method for Hard Majority strategy
+     * Method for Hard Majority strategy.
      * 
      * @param p Player object
      * @param opponent Opponent player object
@@ -196,8 +249,41 @@ public class Strategies {
                     totalSteal+=1;
                 }
             }
-            if(totalSplit>totalSteal){
+            if(totalSplit>=totalSteal){
                 p.setChoice("split");
+            }else{
+                p.setChoice("steal");
+            }
+        }
+    }
+
+    /**
+     * Method for Win Stay Lose Swap Strategy.
+     * 
+     * @param p Player object
+     * @param opponent Opponent object
+     */
+    public static void WinStayLoseSwap(Player p, Player opponent){
+        String[] arr = {"split","steal"};
+        int selected;
+        int[] points = new int[2];
+        Random random = new Random();
+
+        if(p.getChoices().isEmpty()){
+            selected = random.nextInt(arr.length);
+            p.setChoice(arr[selected]);
+        }else{
+            int prevChoice = Math.min(p.getChoices().size() - 1, opponent.getChoices().size() - 1);
+            String choiceP = p.getChoices().get(prevChoice).toString();
+            String choiceOpp = opponent.getChoices().get(prevChoice).toString();
+            points = Dilemma.compareChoice(choiceP, choiceOpp);
+            int pPoints = points[0];
+            int oppPoints = points[1];
+
+            if(pPoints>oppPoints){
+                p.setChoice(choiceP);
+            }else if(pPoints==oppPoints){
+                p.setChoice(choiceP);
             }else{
                 p.setChoice("steal");
             }
