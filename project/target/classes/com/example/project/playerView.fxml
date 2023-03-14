@@ -13,6 +13,6 @@
       <Label fx:id="label" alignment="TOP_CENTER" layoutX="244.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0" />
       <ChoiceBox fx:id="Choice" layoutX="244.0" layoutY="132.0" prefWidth="150.0" />
       <Label alignment="TOP_CENTER" layoutX="244.0" layoutY="107.0" prefHeight="17.0" prefWidth="149.0" text="Select Strategy:" />
-      <Button fx:id="helpButton" layoutX="412.0" layoutY="132.0" mnemonicParsing="false" onAction="#showHelp" text="Help" />
+      <Button fx:id="helpButton" layoutX="412.0" layoutY="132.0" mnemonicParsing="false" onAction="#showHelp" text="Strategy Help" />
    </children>
 </AnchorPane>

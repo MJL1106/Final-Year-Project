@@ -124,11 +124,15 @@ public class MainView implements Initializable {
      */
     @FXML
     void showPoints(ActionEvent event) {
-        taOutput.setText("Tournament Results" + "\n");
+        taOutput.setText(
+        "Tournament Results" + "\n" + 
+        "----------------------" 
+        + "\n" + "Name | Strategy | Total Points" + "\n" + "\n");
+
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
-            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " " + p.getJailTime() + "\n");
+            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + p.getStrategy() + " | " + p.getJailTime() + "\n");
         }
     }
 

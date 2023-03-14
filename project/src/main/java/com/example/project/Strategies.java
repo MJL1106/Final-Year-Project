@@ -48,11 +48,11 @@ public class Strategies {
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("Pavlov")){
             Pavlov(p, opponent);
         }
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("WinStayLoseSwap")){
+            ScoreBasedPavlov(p, opponent);
+        }
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("HardMajority")){
             HardMajority(p, opponent);
-        }
-        if (choice.replaceAll("\\s+","").equalsIgnoreCase("WinStayLoseSwap")){
-            WinStayLoseSwap(p, opponent);
         }
     }
 
@@ -231,39 +231,14 @@ public class Strategies {
         }
     }
 
-    /**
-     * Method for Hard Majority strategy.
-     * 
-     * @param p Player object
-     * @param opponent Opponent player object
-     */
-    public static void HardMajority(Player p, Player opponent){
-        int totalSplit = 0,totalSteal = 0;
-        if(p.getChoices().isEmpty()){
-            p.setChoice("steal");
-        }else{
-            for (int i =0; i < opponent.getChoices().size(); i++){
-                if (opponent.getChoices().get(i).toString().equals("split")){
-                    totalSplit+=1;
-                }else{
-                    totalSteal+=1;
-                }
-            }
-            if(totalSplit>=totalSteal){
-                p.setChoice("split");
-            }else{
-                p.setChoice("steal");
-            }
-        }
-    }
 
-    /**
-     * Method for Win Stay Lose Swap Strategy.
+     /**
+     * Method for Score Based Pavlov Strategy.
      * 
      * @param p Player object
      * @param opponent Opponent object
      */
-    public static void WinStayLoseSwap(Player p, Player opponent){
+    public static void ScoreBasedPavlov(Player p, Player opponent){
         String[] arr = {"split","steal"};
         int selected;
         int[] points = new int[2];
@@ -284,6 +259,32 @@ public class Strategies {
                 p.setChoice(choiceP);
             }else if(pPoints==oppPoints){
                 p.setChoice(choiceP);
+            }else{
+                p.setChoice("steal");
+            }
+        }
+    }
+
+    /**
+     * Method for Hard Majority strategy.
+     * 
+     * @param p Player object
+     * @param opponent Opponent player object
+     */
+    public static void HardMajority(Player p, Player opponent){
+        int totalSplit = 0,totalSteal = 0;
+        if(p.getChoices().isEmpty()){
+            p.setChoice("steal");
+        }else{
+            for (int i =0; i < opponent.getChoices().size(); i++){
+                if (opponent.getChoices().get(i).toString().equals("split")){
+                    totalSplit+=1;
+                }else{
+                    totalSteal+=1;
+                }
+            }
+            if(totalSplit>=totalSteal){
+                p.setChoice("split");
             }else{
                 p.setChoice("steal");
             }

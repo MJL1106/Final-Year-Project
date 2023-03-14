@@ -15,9 +15,9 @@ public class Game {
      * @param p1 Player 1
      * @param p2 Player 2
      */
-    public static void run(Player p1, Player p2){
+    public static void run(Player p1, Player p2, int numDilemmaRounds){
         
-        for (int i = 0; i<5; i++){
+        for (int i = 0; i<numDilemmaRounds; i++){
             Strategies.Choice(p1.getStrategy(),p1,p2);
             Strategies.Choice(p2.getStrategy(), p2, p1);;
         }

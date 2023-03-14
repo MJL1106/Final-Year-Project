@@ -2,6 +2,7 @@ package com.example.project;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -44,6 +45,9 @@ public class GameView implements Initializable{
         this.playerList.addAll(playerList);
         this.matches.addAll(matches);
 
+        Random random = new Random();
+        int numDilemmaRounds = random.nextInt(16) + 5;
+
         String[] match = new String[]{};
         int[] playerIndex = new int[2];
         int roundNum = 1;
@@ -60,7 +64,7 @@ public class GameView implements Initializable{
             p1 = playerList.get(playerIndex[0]);
             p2 = playerList.get(playerIndex[1]);
 
-            Game.run(p1,p2);
+            Game.run(p1,p2,numDilemmaRounds);
             
             taOutput.appendText(
             p1.getPlayerName() + " vs " + p2.getPlayerName() + " | Result: " + p1.getPlayerName() + " points: " 

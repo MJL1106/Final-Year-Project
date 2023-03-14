@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MainView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MainView">
    <children>
       <Label layoutX="27.0" layoutY="79.0" prefHeight="17.0" prefWidth="123.0" text="Select Player Amount" />
       <ChoiceBox fx:id="playerAmount" layoutX="27.0" layoutY="109.0" prefWidth="150.0" />
       <Button fx:id="createPlayers" layoutX="209.0" layoutY="109.0" mnemonicParsing="false" onAction="#makePlayers" text="Create Players" />
       <Button fx:id="start" layoutX="27.0" layoutY="159.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="150.0" text="Start Tournament" />
-      <TextArea fx:id="taOutput" layoutX="310.0" layoutY="9.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="display" layoutX="515.0" layoutY="178.0" mnemonicParsing="false" onAction="#showPoints" text="Show Results" />
+      <TextArea fx:id="taOutput" layoutX="310.0" layoutY="9.0" prefHeight="233.0" prefWidth="400.0" />
+      <Button fx:id="display" layoutX="634.0" layoutY="255.0" mnemonicParsing="false" onAction="#showPoints" text="Show Results" />
    </children>
 </AnchorPane>

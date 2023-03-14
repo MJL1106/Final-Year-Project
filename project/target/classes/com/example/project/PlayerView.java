@@ -26,7 +26,8 @@ public class PlayerView implements Initializable{
     private Player p;
     private int playerNumber = 0;
     private Stage stage;
-    private String[] strategies = {"Tit For Tat", "Suspicious Tit For Tat", "Forgiving Tit For Tat", "Two Tits For Tat", "Stealer", "Splitter", "Random", "Grudger", "Alternator", "Pavlov", "Hard Majority"};
+    private String[] strategies = {"Tit For Tat", "Suspicious Tit For Tat", "Forgiving Tit For Tat", "Two Tits For Tat", 
+    "Stealer", "Splitter", "Random", "Grudger", "Alternator", "Pavlov", "Score Based Pavlov", "Hard Majority"};
 
     @FXML
     private Label label;

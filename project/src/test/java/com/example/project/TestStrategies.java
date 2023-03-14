@@ -284,9 +284,9 @@ public class TestStrategies {
         assertEquals(17,p2.getRoundPoints());
     }
 
-    @Test //Test Win Stay Lose Swap vs Steaker
-    public void testWinStayLoseSwapStealer(){
-        p1.setStrategy("Win Stay Lose Swap");
+    @Test //Test Score Based Pavlov vs Steaker
+    public void testScoreBasedPavlovStealer(){
+        p1.setStrategy("Score Based Pavlov");
         p2.setStrategy("Stealer");
 
         for (int i = 0; i<5; i++){
@@ -297,9 +297,9 @@ public class TestStrategies {
         assertTrue(((p1.getRoundPoints() == 4)) || (p1.getRoundPoints() == 5));
     }
 
-    @Test //Test Win Stay Lose Swap vs Suspicious Tit For Tat
-    public void testWinStayLoseSwapSusTat(){
-        p1.setStrategy("Win Stay Lose Swap");
+    @Test //Test Score Based Pavlov vs Suspicious Tit For Tat
+    public void testScoreBasedPavlovSusTat(){
+        p1.setStrategy("Score Based Pavlov");
         p2.setStrategy("Suspicious Tit For Tat");
 
         for (int i = 0; i<5; i++){
@@ -310,9 +310,9 @@ public class TestStrategies {
         assertTrue(((p1.getRoundPoints() == 5)) || (p1.getRoundPoints() == 8));
     }
 
-    @Test //Test Win Stay Lose Swap vs Hard Majority
-    public void testWinStayLoseSwapHardMajority(){
-        p1.setStrategy("Win Stay Lose Swap");
+    @Test //Test Score Based Pavlov vs Hard Majority
+    public void testScoreBasedPavlovHardMajority(){
+        p1.setStrategy("Score Based Pavlov");
         p2.setStrategy("Hard Majority");
 
         for (int i = 0; i<5; i++){
