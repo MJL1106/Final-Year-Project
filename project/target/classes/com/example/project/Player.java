@@ -8,7 +8,7 @@ import java.util.Comparator;
  */
 public class Player {
     private String playerName,strategy;
-    private int jailTime,roundPoints;
+    private int jailTime,roundPoints,overallScore;
     private ArrayList<String> choices = new ArrayList<String>();
 
     /**
@@ -79,7 +79,7 @@ public class Player {
     }
     
     /** 
-     * Sets the points of the Player.
+     * Sets the tournament total points of the Player.
      * 
      * @param time result of dilemma
      */
@@ -89,12 +89,30 @@ public class Player {
 
     
     /** 
-     * Gets the Players total points.
+     * Gets the Players total points for the tournament.
      * 
      * @return int total points
      */
     public int getJailTime(){
         return this.jailTime;
+    }
+
+    /**
+     * Sets the total points of a Player.
+     * 
+     * @param points points to be added
+     */
+    public void setOverallScore(int points){
+        this.overallScore = points;
+    }
+
+    /**
+     * Gets the Players overall points.
+     * 
+     * @return int overall points
+     */
+    public int getOverallScore(){
+        return this.overallScore;
     }
 
     
@@ -126,6 +144,19 @@ public class Player {
         public int compare(Player p1, Player p2){
             int time1 = p1.getJailTime();
             int time2 = p2.getJailTime();
+            return time2-time1;
+        }
+    };
+
+     /**
+     * Compares points to order in decending order.
+     * Reference [2] adaptation
+     * @return int bigger value
+     */
+    public static Comparator<Player> ComparatorOverall = new Comparator<Player>(){
+        public int compare(Player p1, Player p2){
+            int time1 = p1.getOverallScore();
+            int time2 = p2.getOverallScore();
             return time2-time1;
         }
     };

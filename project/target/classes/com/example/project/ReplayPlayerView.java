@@ -1,6 +1,7 @@
 package com.example.project;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -20,7 +21,7 @@ import javafx.stage.Stage;
 /**
  * Class displays GUI for creating players.
  */
-public class PlayerView implements Initializable{
+public class ReplayPlayerView implements Initializable{
 
 
     private Player p;
@@ -30,47 +31,34 @@ public class PlayerView implements Initializable{
     "Stealer", "Splitter", "Random", "Grudger", "Alternator", "Pavlov", "Score Based Pavlov", "Hard Majority"};
 
     @FXML
-    private Label label;
-
-    @FXML
     private ChoiceBox<String> Choice;
-
-    @FXML
-    private TextField Name1;
-
-    @FXML
-    private Button names;
 
     @FXML
     private Button helpButton;
 
     @FXML
+    private Label label;
+
+    @FXML
+    private Button names;
+
+    @FXML
     private AnchorPane scenePane;
 
+
     
-    /** 
-     * Sets the name of the players and their strategy.
-     * 
-     * @param event on click
-     */
-    public void enterNames(ActionEvent event) {
-        p = new Player(Name1.getText());
-        p.setStrategy(Choice.getValue());
-        MainView.storePlayers(p);
-        stage = (Stage) scenePane.getScene().getWindow();
-        stage.close();
-    }
-    
-    /** 
-     * @param location
-     * @param resources
-     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Choice.getItems().addAll(strategies);
-        
     }
 
+    @FXML
+    void enterNames(ActionEvent event) {
+        p.setStrategy(Choice.getValue());
+        ReplayView.updatePlayers(p);
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+    }
 
     @FXML
     void showHelp(ActionEvent event) {
@@ -87,16 +75,15 @@ public class PlayerView implements Initializable{
             e.printStackTrace();
           }
     }
-    
+
     /** 
      * Displays the number of player being created.
      * 
      * @param player Player object to be created
-     * @param i numbered player
+     * @param i
      */
-    public void createName(Player player, int i) {
+    public void createName(Player player) {
         this.p = player;
-        this.playerNumber = i;
-        label.setText("Player " + playerNumber);
+        label.setText("Player: " + p.getPlayerName());
     }
 }

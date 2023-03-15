@@ -60,9 +60,6 @@ public class PlayerView implements Initializable{
         stage = (Stage) scenePane.getScene().getWindow();
         stage.close();
     }
-
-
-
     
     /** 
      * @param location

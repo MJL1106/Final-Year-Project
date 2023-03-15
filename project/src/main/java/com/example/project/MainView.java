@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -44,6 +45,12 @@ public class MainView implements Initializable {
     @FXML
     private TextArea taOutput;
 
+    @FXML
+    private Button replay;
+
+    @FXML
+    private AnchorPane scenePane;
+
     
     /** 
      * @param location
@@ -51,10 +58,33 @@ public class MainView implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        display.setDisable(true);
+        replay.setDisable(true);
         playerAmount.getItems().addAll(players);
     }
 
-    
+    @FXML
+    void replayTournament(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("replayView.fxml"));
+            Parent root = loader.load();
+
+            ReplayView replayview = loader.getController();
+            replayview.createReplay(selected,playerList,Players);
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            Stage closeStage = new Stage();
+            stage.setTitle("Prisoner's Dilemma Game");
+            stage.setScene(scene);
+            stage.show();
+            closeStage = (Stage) scenePane.getScene().getWindow();
+            closeStage.close();
+            
+          } catch(Exception e) {
+            e.printStackTrace();
+          }
+    }
     
     /** 
      * Creates players for the tournament.
@@ -113,6 +143,7 @@ public class MainView implements Initializable {
             System.out.println(e);
         }
         start.setDisable(true);
+        display.setDisable(false);
     }
 
     
@@ -124,6 +155,7 @@ public class MainView implements Initializable {
      */
     @FXML
     void showPoints(ActionEvent event) {
+        replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
         "----------------------" 

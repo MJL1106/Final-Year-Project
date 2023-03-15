@@ -70,3 +70,7 @@ more complicated strategies with less issues.
 14/03/2023
 Implemented more strategies. Next im going to work on a chat box where players can gossip at the end of a tournament. Also going to add a trust score
 so players know if other players have been stealing more than splitting. 
+15/03/2023
+Added a replay tournament ability. Two tournament can be played in a row between the same players. They can then change their strategy when the new tournament
+starts. I had some issues with carrying scores over but mangaged to fix it. Tomorrow im going to make the replayability inifinite so the tournament creator can
+make new tournaments over and over as many times as they like.

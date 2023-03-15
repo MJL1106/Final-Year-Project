@@ -51,7 +51,8 @@ public class GameView implements Initializable{
         String[] match = new String[]{};
         int[] playerIndex = new int[2];
         int roundNum = 1;
-        int total1,total2;
+        int totalTournamentPoints1,totalTorunamentPoints2,totalOverall1,totalOverall2;
+
         for (int i=0; i<matches.size();i++){
 
             if (i % (selected/2) == 0){
@@ -70,10 +71,17 @@ public class GameView implements Initializable{
             p1.getPlayerName() + " vs " + p2.getPlayerName() + " | Result: " + p1.getPlayerName() + " points: " 
             + p1.getRoundPoints() + "   " + p2.getPlayerName() + " points: " + p2.getRoundPoints() + "\n" + "\n");
 
-            total1 = p1.getRoundPoints()+p1.getJailTime();
-            p1.setJailTime(total1);
-            total2 = p2.getRoundPoints()+p2.getJailTime();
-            p2.setJailTime(total2);
+            totalTournamentPoints1 = p1.getRoundPoints()+p1.getJailTime();
+            p1.setJailTime(totalTournamentPoints1);
+            totalTorunamentPoints2 = p2.getRoundPoints()+p2.getJailTime();
+            p2.setJailTime(totalTorunamentPoints2);
+
+            totalOverall1 = p1.getOverallScore() + p1.getRoundPoints();
+            p1.setOverallScore(totalOverall1);
+            totalOverall2 = p2.getOverallScore() + p2.getRoundPoints();
+            p2.setOverallScore(totalOverall2);
+
+
 
             p1.setRoundPoints(0);
             p2.setRoundPoints(0);
