@@ -67,3 +67,6 @@ works how its inteded to work.
 13/03/2023
 Smooth day for implementing two more strategies, Pavlov and Hard majority. The changes that I made are proving to make it way easier to implement
 more complicated strategies with less issues. 
+14/03/2023
+Implemented more strategies. Next im going to work on a chat box where players can gossip at the end of a tournament. Also going to add a trust score
+so players know if other players have been stealing more than splitting. 

@@ -48,7 +48,7 @@ public class Strategies {
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("Pavlov")){
             Pavlov(p, opponent);
         }
-        if (choice.replaceAll("\\s+","").equalsIgnoreCase("WinStayLoseSwap")){
+        if (choice.replaceAll("\\s+","").equalsIgnoreCase("ScoreBasedPavlov")){
             ScoreBasedPavlov(p, opponent);
         }
         if (choice.replaceAll("\\s+","").equalsIgnoreCase("HardMajority")){

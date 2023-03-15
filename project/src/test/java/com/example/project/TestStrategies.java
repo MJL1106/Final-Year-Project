@@ -294,6 +294,8 @@ public class TestStrategies {
             Strategies.Choice(p2.getStrategy(),p2,p1);
         }
         Iterator.tallyRoundPoints(p1,p2);
+        int p1po = p1.getRoundPoints();
+        int p2po = p2.getRoundPoints();
         assertTrue(((p1.getRoundPoints() == 4)) || (p1.getRoundPoints() == 5));
     }
 
