@@ -3,16 +3,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.PlayerView">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.PlayerView">
    <children>
-      <TextField fx:id="Name1" layoutX="244.0" layoutY="72.0" promptText="Enter Name" />
-      <Button fx:id="names" layoutX="533.0" layoutY="132.0" mnemonicParsing="false" onAction="#enterNames" text="Confirm" />
-      <Label fx:id="label" alignment="TOP_CENTER" layoutX="244.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0" />
-      <ChoiceBox fx:id="Choice" layoutX="244.0" layoutY="132.0" prefWidth="150.0" />
-      <Label alignment="TOP_CENTER" layoutX="244.0" layoutY="107.0" prefHeight="17.0" prefWidth="149.0" text="Select Strategy:" />
-      <Button fx:id="helpButton" layoutX="412.0" layoutY="132.0" mnemonicParsing="false" onAction="#showHelp" text="Strategy Help" />
+      <TextField fx:id="Name1" layoutX="344.0" layoutY="80.0" promptText="Enter Name" />
+      <Button fx:id="names" layoutX="603.0" layoutY="132.0" mnemonicParsing="false" onAction="#enterNames" text="Confirm" />
+      <Label fx:id="label" alignment="TOP_CENTER" layoutX="344.0" layoutY="43.0" prefHeight="17.0" prefWidth="149.0" />
+      <ChoiceBox fx:id="Choice" layoutX="343.0" layoutY="132.0" prefWidth="150.0" />
+      <Label alignment="TOP_CENTER" layoutX="344.0" layoutY="106.0" prefHeight="17.0" prefWidth="149.0" text="Select Strategy:" />
+      <Button fx:id="helpButton" layoutX="505.0" layoutY="132.0" mnemonicParsing="false" onAction="#showHelp" text="Strategy Help" />
+      <Label alignment="CENTER" layoutX="45.0" layoutY="34.0" prefHeight="17.0" prefWidth="150.0" text="Gossip Box" />
+      <ScrollPane fx:id="scrollPane" layoutX="45.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0">
+         <content>
+            <VBox fx:id="vbox" prefHeight="200.0" prefWidth="185.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="messageToSend" layoutX="46.0" layoutY="269.0" prefHeight="25.0" prefWidth="170.0" />
+      <Button fx:id="send" layoutX="231.0" layoutY="269.0" mnemonicParsing="false" onAction="#displayMessage" text="Send" />
    </children>
 </AnchorPane>
