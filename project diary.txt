@@ -74,3 +74,7 @@ so players know if other players have been stealing more than splitting.
 Added a replay tournament ability. Two tournament can be played in a row between the same players. They can then change their strategy when the new tournament
 starts. I had some issues with carrying scores over but mangaged to fix it. Tomorrow im going to make the replayability inifinite so the tournament creator can
 make new tournaments over and over as many times as they like.
+16/03/2023
+Tournaments can now be played for an infinite amount of times in a row now. This will be useful to gather data on which strategies are the best over a long period.
+I also began making a chat box where players will be able discuss the previous tournament. I need to find a way to pass the text to other players so that they can chat
+to each other. 
