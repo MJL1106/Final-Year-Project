@@ -1,5 +1,6 @@
 package com.example.project;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,11 +55,37 @@ public class PlayerView implements Initializable{
      * @param event on click
      */
     public void enterNames(ActionEvent event) {
-        p = new Player(Name1.getText());
-        p.setStrategy(Choice.getValue());
-        MainView.storePlayers(p);
-        stage = (Stage) scenePane.getScene().getWindow();
-        stage.close();
+        if(Name1.getText().equals("")){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("missingNameView.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("ERROR");
+                stage.setScene(new Scene(root));  
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else if(Choice.getValue()==null){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("missingStrategyView.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("ERROR");
+                stage.setScene(new Scene(root));  
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            p = new Player(Name1.getText());
+            p.setStrategy(Choice.getValue());
+            MainView.storePlayers(p);
+            stage = (Stage) scenePane.getScene().getWindow();
+            stage.close();
+        }
     }
     
     /** 

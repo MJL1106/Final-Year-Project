@@ -1,5 +1,6 @@
 package com.example.project;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -54,10 +55,24 @@ public class ReplayPlayerView implements Initializable{
 
     @FXML
     void enterNames(ActionEvent event) {
-        p.setStrategy(Choice.getValue());
-        ReplayView.updatePlayers(p);
-        stage = (Stage) scenePane.getScene().getWindow();
-        stage.close();
+        if(Choice.getValue()==null){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("missingStrategyView.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("ERROR");
+                stage.setScene(new Scene(root));  
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            p.setStrategy(Choice.getValue());
+            MainView.storePlayers(p);
+            stage = (Stage) scenePane.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML

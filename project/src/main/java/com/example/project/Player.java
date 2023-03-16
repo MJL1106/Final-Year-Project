@@ -10,6 +10,7 @@ public class Player {
     private String playerName,strategy;
     private int jailTime,roundPoints,overallScore;
     private ArrayList<String> choices = new ArrayList<String>();
+    private ArrayList<String> strategyHistory = new ArrayList<String>();
 
     /**
      * A constructor to create a new Player.
@@ -32,12 +33,13 @@ public class Player {
 
     
     /** 
-     * Sets player's strategy.
+     * Sets player's strategy and adds to history.
      * 
      * @param strat
      */
     public void setStrategy(String strat){
         this.strategy = strat;
+        this.strategyHistory.add(strat);
     }
 
     
@@ -48,6 +50,10 @@ public class Player {
      */
     public String getStrategy(){
         return this.strategy;
+    }
+
+    public ArrayList<String> getStrategyHistory(){
+        return this.strategyHistory;
     }
     
     /** 

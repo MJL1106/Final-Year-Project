@@ -70,6 +70,14 @@ public class ReplayView {
 
     @FXML
     void replayTournament(ActionEvent event) {
+        taOutput.setText("");
+        this.Matches.removeAll(Matches);
+        display.setDisable(true);
+        replay.setDisable(true);
+        overall.setDisable(true);
+        updatePlayers.setDisable(false);
+        start.setDisable(false);
+        
     }
 
     @FXML
@@ -78,12 +86,14 @@ public class ReplayView {
         taOutput.setText(
         "Tournament Results" + "\n" + 
         "----------------------" 
-        + "\n" + "Name | Strategy | Total Points" + "\n" + "\n");
+        + "\n" + "Name | Strategy History | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.ComparatorOverall);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
-            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + p.getStrategy() + " | " + p.getOverallScore() + "\n");
+            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + 
+            p.getStrategyHistory().toString().replace("[","").replace("]","").replace(","," - ")
+            + " | " + p.getOverallScore() + "\n");
         }
     }
 
@@ -127,16 +137,16 @@ public class ReplayView {
             System.out.println(e);
         }
 
-
-
         start.setDisable(true);
         display.setDisable(false);
-
+        overall.setDisable(false);
     }
 
     public void createReplay(int selected, ArrayList<Player> playersList, ArrayList<String> playersNames){
         replay.setDisable(true);
         display.setDisable(true);
+        overall.setDisable(true);
+
         this.selected = selected;
         this.playerList.addAll(playersList);
         this.Players.addAll(playersNames);
