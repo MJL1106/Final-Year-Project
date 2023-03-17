@@ -142,6 +142,12 @@ public class MainView implements Initializable {
         } catch(Exception e){
             System.out.println(e);
         }
+
+        for(int i=0; i<selected;i++){
+            p = playerList.get(i);
+            Game.TrustScore(p);
+        }
+        
         start.setDisable(true);
         display.setDisable(false);
     }
@@ -159,12 +165,12 @@ public class MainView implements Initializable {
         taOutput.setText(
         "Tournament Results" + "\n" + 
         "----------------------" 
-        + "\n" + "Name | Strategy | Total Points" + "\n" + "\n");
+        + "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
-            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + p.getStrategy() + " | " + p.getJailTime() + "\n");
+            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + p.getStrategy() + " | " + p.getTrustScore() + " | " + p.getJailTime() + "\n");
         }
     }
 

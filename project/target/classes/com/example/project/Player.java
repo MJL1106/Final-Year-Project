@@ -8,8 +8,9 @@ import java.util.Comparator;
  */
 public class Player {
     private String playerName,strategy;
-    private int jailTime,roundPoints,overallScore,trustScore;
+    private int jailTime,roundPoints,overallScore, trustScore;
     private ArrayList<String> choices = new ArrayList<String>();
+    private ArrayList<String> choicesHistory = new ArrayList<String>();
     private ArrayList<String> strategyHistory = new ArrayList<String>();
 
     /**
@@ -141,6 +142,22 @@ public class Player {
         return this.roundPoints;
     }
 
+    public void setTrustScore(int score){
+        this.trustScore = score;
+    }
+
+    public int getTrustScore(){
+        return this.trustScore;
+    }
+
+    public void setChoicesHistory(ArrayList<String> roundChoices) {
+        this.choicesHistory.addAll(roundChoices);
+    }
+
+    public ArrayList<String> getChoicesHistory(){
+        return this.choicesHistory;
+    }
+
     /**
      * Compares points to order in decending order.
      * Reference [2] adaptation
@@ -166,4 +183,5 @@ public class Player {
             return time2-time1;
         }
     };
+
 }

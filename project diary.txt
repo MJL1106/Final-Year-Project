@@ -78,3 +78,9 @@ make new tournaments over and over as many times as they like.
 Tournaments can now be played for an infinite amount of times in a row now. This will be useful to gather data on which strategies are the best over a long period.
 I also began making a chat box where players will be able discuss the previous tournament. I need to find a way to pass the text to other players so that they can chat
 to each other. 
+17/03/2023
+Fully implemented a chat box ability. Credit to this amazing youtube video I found https://www.youtube.com/watch?v=_1nqY-DKP9A&t=2718s&ab_channel=WittCode 
+refrence [9] in my report. Was useful to understand how to format the GUI chat box neatly and mimics a text messaging service like on your phone. I also
+implmented a trust score that just checks the amount someone splits compared to steals. The higher the score the more the person splits and vise versa.
+I should be finished with the code tomorow and I only need to make some charts to compile data to prove which strategies are the best. Finally I will 
+look over all my code and make it neat and improve my GUI a little.

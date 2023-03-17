@@ -82,18 +82,21 @@ public class ReplayView {
 
     @FXML
     void showOverallScores(ActionEvent event) {
+
+
+
         replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
         "----------------------" 
-        + "\n" + "Name | Strategy History | Total Points" + "\n" + "\n");
+        + "\n" + "Name | Strategy History | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.ComparatorOverall);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
             taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + 
             p.getStrategyHistory().toString().replace("[","").replace("]","").replace(","," - ")
-            + " | " + p.getOverallScore() + "\n");
+            + " | " + p.getTrustScore() + " | " + p.getOverallScore() + "\n");
         }
     }
 
@@ -103,12 +106,12 @@ public class ReplayView {
         taOutput.setText(
         "Tournament Results" + "\n" + 
         "----------------------" 
-        + "\n" + "Name | Strategy | Total Points" + "\n" + "\n");
+        + "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
             p = playerList.get(i);
-            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + p.getStrategy() + " | " + p.getJailTime() + "\n");
+            taOutput.appendText((i+1) + ". " + p.getPlayerName() + " | " + p.getStrategy() + " | " + p.getTrustScore() + " | " + p.getJailTime() + "\n");
         }
     }
 
@@ -135,6 +138,11 @@ public class ReplayView {
             stage.show();
         } catch(Exception e){
             System.out.println(e);
+        }
+
+        for(int i=0; i<selected;i++){
+            p = playerList.get(i);
+            Game.TrustScore(p);
         }
 
         start.setDisable(true);

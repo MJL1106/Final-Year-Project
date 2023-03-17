@@ -19,8 +19,11 @@ public class Game {
         
         for (int i = 0; i<numDilemmaRounds; i++){
             Strategies.Choice(p1.getStrategy(),p1,p2);
-            Strategies.Choice(p2.getStrategy(), p2, p1);;
+            Strategies.Choice(p2.getStrategy(), p2, p1);
         }
+        p1.setChoicesHistory(p1.getChoices());
+        p2.setChoicesHistory(p2.getChoices());
+
         Iterator.tallyRoundPoints(p1, p2);
     }
     
@@ -82,5 +85,24 @@ public class Game {
 
         return indexes;
         
+    }
+
+
+    public static void TrustScore(Player p) {
+        int totalSplits = 0;
+        int totalSteals = 0;
+        int trustScore = 0;
+        for(int i = 0; i < p.getChoicesHistory().size(); i++){
+            String choice = p.getChoicesHistory().get(i);
+            if(choice.equals("split")){
+                totalSplits++;
+            }else{
+                totalSteals++;
+            }
+        }
+        trustScore  = (int) (100 * ((double) totalSplits / (totalSplits + totalSteals)));
+
+        p.setTrustScore(trustScore);
+
     }
 }
