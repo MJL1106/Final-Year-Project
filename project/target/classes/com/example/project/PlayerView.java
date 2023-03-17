@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.event.ChangeListener;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,15 +48,6 @@ public class PlayerView implements Initializable{
     private TextField Name1;
 
     @FXML
-    private TextField messageToSend;
-
-    @FXML
-    private Button send;
-
-    @FXML
-    private VBox vbox;
-
-    @FXML
     private Button names;
 
     @FXML
@@ -66,8 +56,6 @@ public class PlayerView implements Initializable{
     @FXML
     private AnchorPane scenePane;
 
-    @FXML
-    private ScrollPane scrollPane;
 
     
     /** 
@@ -117,19 +105,6 @@ public class PlayerView implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         Choice.getItems().addAll(strategies);
     }
-
-    @FXML
-    void displayMessage(ActionEvent event) {
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER_LEFT);
-        
-
-
-        Text text = new Text(messageToSend.getText());
-        hBox.getChildren().add(text);
-        vbox.getChildren().add(hBox);
-    }
-
 
     @FXML
     void showHelp(ActionEvent event) {

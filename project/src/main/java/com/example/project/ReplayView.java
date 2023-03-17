@@ -3,6 +3,7 @@ package com.example.project;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ReplayView {
@@ -23,7 +25,7 @@ public class ReplayView {
     private static ArrayList<String> Players = new ArrayList<String>();
     private static Player p;
     private static ArrayList<String> Matches = new ArrayList<String>();
-
+    private List<String> messageList = new ArrayList<>();
 
     @FXML
     private Button display;
@@ -48,22 +50,20 @@ public class ReplayView {
 
     @FXML
     void makePlayers(ActionEvent event) {
-        for (int i = 0; i<playerList.size();i++){
-            p = playerList.get(i);
-            try{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("replayPlayerView.fxml"));
-                Parent root = loader.load();
+        int i = 0;
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("replayPlayerView.fxml"));
+            Parent root = loader.load();
                 
-                ReplayPlayerView myview = loader.getController();
-                myview.createName(p);
+            ReplayPlayerView myview = loader.getController();
+            myview.createName(playerList,i,messageList);
     
-                Stage stage = new Stage();
-                stage.setTitle("Create Player");
-                stage.setScene(new Scene(root));  
-                stage.show();
-            } catch(Exception e){
-                System.out.println(e);
-            }
+            Stage stage = new Stage();
+            stage.setTitle("Create Player");
+            stage.setScene(new Scene(root));  
+            stage.show();
+        } catch(Exception e){
+            System.out.println(e);
         }
         updatePlayers.setDisable(true);
     }
