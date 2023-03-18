@@ -88,8 +88,7 @@ public class ReplayView {
         replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
-        "----------------------" 
-        + "\n" + "Name | Strategy History | Trust Score | Total Points" + "\n" + "\n");
+         "\n" + "Name | Strategy History | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.ComparatorOverall);
         for(int i=0; i<selected;i++){
@@ -105,8 +104,7 @@ public class ReplayView {
         replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
-        "----------------------" 
-        + "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
+        "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){

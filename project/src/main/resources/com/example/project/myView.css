@@ -1,20 +1,50 @@
 .button{
-	-fx-background-color:red;
+	-fx-font-family: "Arial";
+	-fx-font-size: 13pt;
 	-fx-text-fill: white;
-	-fx-font-family: Arial;
-	-fx-font-size: 12px;
+	-fx-border-color: black;
+	-fx-border-width: 1.8px;
+	-fx-background-color: #325391;
 }
-.label {
-	-fx-background-color: white;
-	-fx-text-fill: red;
-	-fx-font-family: Arial;
-	-fx-font-size: 16px;
-}
-.text-field{
-	-fx-font-family: Arial;
-	-fx-font-size: 12px;
-}
+
+.anchor-pane{-fx-background-color: #E2D1CA;}
+
 .text-area{
-	-fx-font-family: Arial;
-	-fx-font-size: 12px;
+	-fx-font-family: "Arial";
+	-fx-font-size: 13pt;
+	-fx-control-inner-background: #325391;
+	-fx-text-fill: white;
+	-fx-border-color: black;
+	-fx-border-width: 1.8px;
 }
+
+.text-field{
+	-fx-font-family: "Arial";
+	-fx-font-size: 13pt;
+	-fx-control-inner-background: #325391;
+	-fx-text-fill: white;
+	-fx-border-color: black;
+	-fx-border-width: 1.8px;
+}
+
+.choice-box .context-menu { -fx-background-color: #325391;}
+
+.choice-box .menu-item:focused { -fx-background-color: #325391;}
+
+.choice-box .menu-item > .label { -fx-text-fill: white; -fx-border-color: #325391}
+
+.choice-box .menu-item:focused > .label { -fx-text-fill: red;}
+
+.label{
+	-fx-font-family: "Arial";
+	-fx-font-size: 13pt;
+	-fx-text-fill: white;
+	-fx-border-color: black;
+	-fx-border-width: 1.8px;
+	-fx-background-color: #325391;
+}
+
+.vbox{
+	-fx-background-color: #325391;
+}
+

@@ -84,3 +84,6 @@ refrence [9] in my report. Was useful to understand how to format the GUI chat b
 implmented a trust score that just checks the amount someone splits compared to steals. The higher the score the more the person splits and vise versa.
 I should be finished with the code tomorow and I only need to make some charts to compile data to prove which strategies are the best. Finally I will 
 look over all my code and make it neat and improve my GUI a little.
+18/03/2023
+My project is now finished from a GUI and coding stand point. I just need to go over everything and add any missing javadoc and it is complete. Today I completely
+revamped the GUI with colour and css.

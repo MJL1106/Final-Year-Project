@@ -7,18 +7,40 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ReplayPlayerView">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="990.0" styleClass="anchor-pane" stylesheets="@myView.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.ReplayPlayerView">
    <children>
-      <Button fx:id="names" layoutX="681.0" layoutY="141.0" mnemonicParsing="false" onAction="#enterNames" text="Confirm" />
-      <Label fx:id="label" alignment="TOP_CENTER" layoutX="416.0" layoutY="94.0" prefHeight="17.0" prefWidth="149.0" />
-      <ChoiceBox fx:id="Choice" layoutX="416.0" layoutY="141.0" prefWidth="150.0" />
-      <Label alignment="TOP_CENTER" layoutX="416.0" layoutY="111.0" prefHeight="17.0" prefWidth="149.0" text="Select Strategy:" />
-      <Button fx:id="helpButton" layoutX="582.0" layoutY="141.0" mnemonicParsing="false" onAction="#showHelp" text="Strategy Help" />
-      <Label alignment="CENTER" layoutX="55.0" layoutY="44.0" prefHeight="17.0" prefWidth="150.0" text="Gossip Box" />
-      <TextField fx:id="messageToSend" layoutX="45.0" layoutY="279.0" prefHeight="25.0" prefWidth="245.0" />
-      <Button fx:id="send" layoutX="299.0" layoutY="279.0" mnemonicParsing="false" onAction="#displayMessage" text="Send" />
-      <ScrollPane fx:id="scrollPane" layoutX="45.0" layoutY="66.0" prefHeight="200.0" prefWidth="297.0">
+      <Button fx:id="names" layoutX="823.0" layoutY="116.0" mnemonicParsing="false" onAction="#enterNames" prefHeight="37.0" prefWidth="104.0" text="Confirm">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+      <Label fx:id="label" alignment="TOP_CENTER" layoutX="396.0" layoutY="77.0" prefHeight="25.0" prefWidth="200.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <ChoiceBox fx:id="Choice" layoutX="605.0" layoutY="116.0" prefHeight="37.0" prefWidth="200.0" />
+      <Label alignment="TOP_CENTER" layoutX="605.0" layoutY="77.0" prefHeight="25.0" prefWidth="200.0" text="Select Strategy">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <Button fx:id="helpButton" layoutX="396.0" layoutY="116.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="37.0" prefWidth="200.0" text="Strategy Help">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="119.0" layoutY="40.0" prefHeight="17.0" prefWidth="150.0" text="Gossip Box">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <TextField fx:id="messageToSend" layoutX="45.0" layoutY="279.0" prefHeight="25.0" prefWidth="245.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></TextField>
+      <Button fx:id="send" layoutX="293.0" layoutY="279.0" mnemonicParsing="false" onAction="#displayMessage" prefHeight="37.0" prefWidth="82.0" text="Send">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+      <ScrollPane fx:id="scrollPane" layoutX="45.0" layoutY="66.0" prefHeight="200.0" prefWidth="333.0">
          <content>
             <VBox fx:id="vbox" prefHeight="200.0" prefWidth="280.0" />
          </content>

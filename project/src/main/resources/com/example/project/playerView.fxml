@@ -5,14 +5,30 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.PlayerView">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="766.0" styleClass="anchor-pane" stylesheets="@myView.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.PlayerView">
    <children>
-      <TextField fx:id="Name1" layoutX="94.0" layoutY="67.0" promptText="Enter Name" />
-      <Button fx:id="names" layoutX="361.0" layoutY="120.0" mnemonicParsing="false" onAction="#enterNames" text="Confirm" />
-      <Label fx:id="label" alignment="TOP_CENTER" layoutX="94.0" layoutY="42.0" prefHeight="17.0" prefWidth="149.0" />
-      <ChoiceBox fx:id="Choice" layoutX="94.0" layoutY="120.0" prefWidth="150.0" />
-      <Label alignment="TOP_CENTER" layoutX="95.0" layoutY="103.0" prefHeight="17.0" prefWidth="149.0" text="Select Strategy:" />
-      <Button fx:id="helpButton" layoutX="255.0" layoutY="120.0" mnemonicParsing="false" onAction="#showHelp" text="Strategy Help" />
+      <TextField fx:id="Name1" layoutX="27.0" layoutY="62.0" promptText="Enter Name">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></TextField>
+      <Button fx:id="names" alignment="CENTER" layoutX="555.0" layoutY="62.0" mnemonicParsing="false" onAction="#enterNames" prefHeight="37.0" prefWidth="87.0" text="Confirm">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+      <Label fx:id="label" alignment="TOP_CENTER" layoutX="56.0" layoutY="24.0" prefHeight="17.0" prefWidth="164.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <ChoiceBox fx:id="Choice" layoutX="306.0" layoutY="62.0" prefHeight="37.0" prefWidth="221.0" />
+      <Label alignment="TOP_CENTER" layoutX="341.0" layoutY="24.0" prefHeight="25.0" prefWidth="150.0" text="Select Strategy:">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Button fx:id="helpButton" alignment="CENTER" layoutX="599.0" layoutY="203.0" mnemonicParsing="false" onAction="#showHelp" prefHeight="37.0" prefWidth="150.0" text="Strategy Help">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>
