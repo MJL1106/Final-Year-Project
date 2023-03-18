@@ -46,7 +46,7 @@ public class GameView implements Initializable{
         this.matches.addAll(matches);
 
         Random random = new Random();
-        int numDilemmaRounds = random.nextInt(16) + 5;
+        int numDilemmaRounds = 200;
 
         String[] match = new String[]{};
         int[] playerIndex = new int[2];
@@ -92,6 +92,7 @@ public class GameView implements Initializable{
             MainView.updatePlayers(p2);
 
         }
+        taOutput.appendText(numDilemmaRounds + "");
     }
 
     

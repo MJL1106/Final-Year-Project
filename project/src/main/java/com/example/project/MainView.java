@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class MainView implements Initializable {
     
-    private Integer[] players = {2,4,6,8,10};
+    private Integer[] players = {2,4,6,8,10,12,36};
     private int selected = 0;
     private static Player p;
     private static ArrayList<Player> playerList = new ArrayList<Player>();
