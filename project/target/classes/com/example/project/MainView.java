@@ -63,6 +63,11 @@ public class MainView implements Initializable {
         playerAmount.getItems().addAll(players);
     }
 
+    /**
+     * Method controls the replay ability of the tournament.
+     * 
+     * @param event button to oppen a popup
+     */
     @FXML
     void replayTournament(ActionEvent event) {
         try {

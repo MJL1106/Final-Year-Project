@@ -10,6 +10,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
+/**
+ * Class displays the front page of the program.
+ */
 public class HomeView {
 
     @FXML

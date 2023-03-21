@@ -142,18 +142,38 @@ public class Player {
         return this.roundPoints;
     }
 
+    /**
+     * Sets the trust score of the player.
+     * 
+     * @param score score value
+     */
     public void setTrustScore(int score){
         this.trustScore = score;
     }
 
+    /**
+     * Gets the trust score of the player.
+     * 
+     * @return score value
+     */
     public int getTrustScore(){
         return this.trustScore;
     }
 
+    /**
+     * Sets all the choices made by a player.
+     * 
+     * @param roundChoices choices made that round
+     */
     public void setChoicesHistory(ArrayList<String> roundChoices) {
         this.choicesHistory.addAll(roundChoices);
     }
 
+    /**
+     * Gets all the history of choices made by a player.
+     * 
+     * @return choices history
+     */
     public ArrayList<String> getChoicesHistory(){
         return this.choicesHistory;
     }

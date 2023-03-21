@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Class displays a warning of empty player name.
+ */
 public class MissingNameView {
     private Stage stage;
 

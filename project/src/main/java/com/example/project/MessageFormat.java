@@ -8,7 +8,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+/**
+ * Class formats messages for gossip.
+ */
 public class MessageFormat {
+    /**
+     * Method formats a players message.
+     * 
+     * @param text message entered
+     * @return formatted message
+     */
     public static HBox formatMessagePlayer(Text text) {
         TextFlow textFlow = new TextFlow(text);
         textFlow.setStyle("-fx-background-color: rgb(233,233,235);" +
@@ -25,7 +34,12 @@ public class MessageFormat {
         return hBox;
     }
 
-
+    /**
+     * Method formats opponents message.
+     * 
+     * @param text message entered
+     * @return formated message
+     */
     public static HBox formatMessageOpponent(Text text) {
         TextFlow textFlow = new TextFlow(text);
         textFlow.setStyle("-fx-background-color: rgb(239,243,255);" +
