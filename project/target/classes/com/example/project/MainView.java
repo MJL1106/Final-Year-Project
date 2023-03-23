@@ -60,6 +60,7 @@ public class MainView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         display.setDisable(true);
         replay.setDisable(true);
+        start.setDisable(true);
         playerAmount.getItems().addAll(players);
     }
 
@@ -116,6 +117,7 @@ public class MainView implements Initializable {
             }
         }
         createPlayers.setDisable(true);
+        start.setDisable(false);
     }
 
     

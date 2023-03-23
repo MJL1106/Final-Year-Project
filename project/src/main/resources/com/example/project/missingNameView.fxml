@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="161.0" prefWidth="271.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MissingNameView">
+<AnchorPane fx:id="scenepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="161.0" prefWidth="271.0" styleClass="anchor-pane" stylesheets="@myView.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.MissingNameView">
    <children>
-      <Button fx:id="button" layoutX="119.0" layoutY="103.0" mnemonicParsing="false" onAction="#startGame" text="OK" />
+      <Button fx:id="button" layoutX="110.0" layoutY="110.0" mnemonicParsing="false" onAction="#startGame" text="OK" />
       <Label alignment="CENTER" layoutX="7.0" layoutY="31.0" prefHeight="72.0" prefWidth="257.0" text="You Must Enter A Name">
          <font>
             <Font size="18.0" />
