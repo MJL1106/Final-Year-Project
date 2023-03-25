@@ -3,10 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.HomeView">
+<AnchorPane fx:id="scenepane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="947.0" styleClass="anchor-pane" stylesheets="@myView.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.HomeView">
    <children>
-      <TextArea layoutX="126.0" layoutY="42.0" prefHeight="195.0" prefWidth="348.0" text="      Iterated Prisoner's Dilemma Game&#10;--------------------------------------------------&#10;- Select the amount of player's you want&#10;- Choose each player's name and strategy&#10;- Begin Round Robin Tournament&#10;- Each match will iterate randomly between 5-20 times&#10;   to balance certain strategies&#10;- Each Player will have a Trust Score that will change &#10;  depending on their choices. The score is on a scale of &#10;  0-100. With 100 being always splitting and 0 always stealing.&#10;" />
-      <Button fx:id="button" layoutX="284.0" layoutY="240.0" mnemonicParsing="false" onAction="#startGame" text="OK" />
+      <TextArea layoutX="24.0" layoutY="14.0" prefHeight="362.0" prefWidth="902.0" text="                                                                    Iterated Prisoner's Dilemma Game&#10;-------------------------------------------------------------------------------------------------------------------------------------------------------&#10;- Select the amount of player's you want&#10;&#10;- Choose each player's name and strategy&#10;&#10;- Begin Round Robin Tournament&#10;&#10;- Each match will iterate randomly between 5-20 times to balance certain strategies&#10;&#10;- Each Player will have a Trust Score that will change depending on their choices. The score is on a scale of &#10;  0-100. With 100 being always splitting and 0 always stealing.&#10;">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></TextArea>
+      <Button fx:id="button" layoutX="449.0" layoutY="393.0" mnemonicParsing="false" onAction="#startGame" text="OK" />
    </children>
 </AnchorPane>

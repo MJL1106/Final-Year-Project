@@ -60,9 +60,15 @@ public class MainView implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         display.setDisable(true);
         replay.setDisable(true);
+        start.setDisable(true);
         playerAmount.getItems().addAll(players);
     }
 
+    /**
+     * Method controls the replay ability of the tournament.
+     * 
+     * @param event button to oppen a popup
+     */
     @FXML
     void replayTournament(ActionEvent event) {
         try {
@@ -111,6 +117,7 @@ public class MainView implements Initializable {
             }
         }
         createPlayers.setDisable(true);
+        start.setDisable(false);
     }
 
     
@@ -164,8 +171,7 @@ public class MainView implements Initializable {
         replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
-        "----------------------" 
-        + "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
+         "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){

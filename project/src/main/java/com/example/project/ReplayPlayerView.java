@@ -80,7 +80,11 @@ public class ReplayPlayerView implements Initializable{
 
     }
 
-
+    /**
+     * Displays message sent by players onto gossip.
+     * 
+     * @param event on click
+     */
     @FXML
     void displayMessage(ActionEvent event) {
         if(!messageToSend.getText().isEmpty()){
@@ -107,7 +111,11 @@ public class ReplayPlayerView implements Initializable{
     }
 
 
-
+    /**
+     * Updates a players strategy.
+     * 
+     * @param event on click
+     */
     @FXML
     void enterNames(ActionEvent event) {
         if(Choice.getValue()==null){
@@ -146,6 +154,11 @@ public class ReplayPlayerView implements Initializable{
         }
     }
 
+    /**
+     * Method displays a pop up for strategy help.
+     * 
+     * @param event on click
+     */
     @FXML
     void showHelp(ActionEvent event) {
         try {

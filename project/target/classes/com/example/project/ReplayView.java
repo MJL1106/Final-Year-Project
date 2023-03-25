@@ -19,6 +19,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * Class is the main controller for replaying tournaments.
+ */
 public class ReplayView {
     private int selected = 0;
     private static ArrayList<Player> playerList = new ArrayList<Player>();
@@ -48,6 +51,11 @@ public class ReplayView {
     @FXML
     private Button updatePlayers;
 
+    /**
+     * Method opens a pop up for updating players strategies and gossip.
+     * 
+     * @param event on click
+     */
     @FXML
     void makePlayers(ActionEvent event) {
         int i = 0;
@@ -68,6 +76,11 @@ public class ReplayView {
         updatePlayers.setDisable(true);
     }
 
+    /**
+     * Method control tournament replay ability.
+     * 
+     * @param event on click
+     */
     @FXML
     void replayTournament(ActionEvent event) {
         taOutput.setText("");
@@ -80,16 +93,17 @@ public class ReplayView {
         
     }
 
+    /**
+     * Method displays the overall scores of every tournament so far.
+     * 
+     * @param event on click
+     */
     @FXML
     void showOverallScores(ActionEvent event) {
-
-
-
         replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
-        "----------------------" 
-        + "\n" + "Name | Strategy History | Trust Score | Total Points" + "\n" + "\n");
+         "\n" + "Name | Strategy History | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.ComparatorOverall);
         for(int i=0; i<selected;i++){
@@ -100,13 +114,17 @@ public class ReplayView {
         }
     }
 
+    /**
+     * Method displays the results of the tournament.
+     * 
+     * @param event on click
+     */
     @FXML
     void showPoints(ActionEvent event) {
         replay.setDisable(false);
         taOutput.setText(
         "Tournament Results" + "\n" + 
-        "----------------------" 
-        + "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
+        "\n" + "Name | Strategy | Trust Score | Total Points" + "\n" + "\n");
 
         Collections.sort(playerList, Player.Comparator);
         for(int i=0; i<selected;i++){
@@ -115,6 +133,11 @@ public class ReplayView {
         }
     }
 
+    /**
+     * Method starts the tournament.
+     * 
+     * @param event on click
+     */
     @FXML
     void startGame(ActionEvent event) {
 
@@ -150,6 +173,13 @@ public class ReplayView {
         overall.setDisable(false);
     }
 
+    /**
+     * Method takes information from previous tournament.
+     * 
+     * @param selected number of players
+     * @param playersList Player object list
+     * @param playersNames Names of every player
+     */
     public void createReplay(int selected, ArrayList<Player> playersList, ArrayList<String> playersNames){
         replay.setDisable(true);
         display.setDisable(true);
@@ -160,6 +190,11 @@ public class ReplayView {
         this.Players.addAll(playersNames);
     }
 
+    /**
+     * Method updates information about players.
+     * 
+     * @param player Player object
+     */
     public static void updatePlayers(Player player) {
         p = player;
         int location = 0;

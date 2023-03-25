@@ -6,6 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
+/**
+ * Class displays a warning of empty strategy.
+ */
 public class MissingStrategyView {
     private Stage stage;
 

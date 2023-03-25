@@ -3,10 +3,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.GameView">
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="890.0" styleClass="anchor-pane" stylesheets="@myView.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.GameView">
    <children>
-      <TextArea fx:id="taOutput" layoutX="24.0" layoutY="37.0" prefHeight="341.0" prefWidth="489.0" />
-      <Button fx:id="exit" layoutX="521.0" layoutY="349.0" mnemonicParsing="false" onAction="#closeScene" prefHeight="25.0" prefWidth="65.0" text="Exit" />
+      <TextArea fx:id="taOutput" layoutX="24.0" layoutY="37.0" prefHeight="457.0" prefWidth="781.0">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></TextArea>
+      <Button fx:id="exit" layoutX="811.0" layoutY="457.0" mnemonicParsing="false" onAction="#closeScene" prefHeight="25.0" prefWidth="65.0" text="Exit">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

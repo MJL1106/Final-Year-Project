@@ -106,6 +106,11 @@ public class PlayerView implements Initializable{
         Choice.getItems().addAll(strategies);
     }
 
+    /**
+     * Method displays a pop up for strategy help.
+     * 
+     * @param event on click
+     */
     @FXML
     void showHelp(ActionEvent event) {
         try {

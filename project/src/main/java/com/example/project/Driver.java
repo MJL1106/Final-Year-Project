@@ -28,9 +28,13 @@ public class Driver extends Application
     public void start(Stage stage) {
       try {
         
+        String css = getClass().getResource("/com/example/project/myView.css").toExternalForm();
+
         Parent root = FXMLLoader.load(getClass().getResource("homeView.fxml"));
         Scene scene = new Scene(root);
+
         stage.setTitle("Prisoner's Dilemma Game");
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
         

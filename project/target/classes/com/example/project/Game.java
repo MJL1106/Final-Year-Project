@@ -87,7 +87,11 @@ public class Game {
         
     }
 
-
+    /**
+     * Method calculates the Trust Score of a player.
+     * 
+     * @param p Player object
+     */
     public static void TrustScore(Player p) {
         int totalSplits = 0;
         int totalSteals = 0;
