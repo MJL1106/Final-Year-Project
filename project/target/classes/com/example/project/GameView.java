@@ -46,7 +46,7 @@ public class GameView implements Initializable{
         this.matches.addAll(matches);
 
         Random random = new Random();
-        int numDilemmaRounds = 200;
+        int numDilemmaRounds = 2;
 
         String[] match = new String[]{};
         int[] playerIndex = new int[2];
