@@ -9,4 +9,4 @@ to the run configuration, I loaded the program on a separate machie and it was a
 In order: Select player amount, create players, start tournament, show points
 
 # Video link interim review
-https://youtu.be/CDKZgxumceE
+https://youtu.be/A3MdkUYG8aU?si=kn4welBjPckHHfZ7
